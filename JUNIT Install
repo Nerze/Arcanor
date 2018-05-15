@@ -1,0 +1,2 @@
+https://www.tutorialspoint.com/junit/junit_environment_setup.htm
+/!\ Etape 5 : Ajouter :$JUNIT_HOME/hamcrest-core-1.3.jar à la commande (%JUNIT_HOME%\hamcrest-core-1.3.jar; pour windows)
