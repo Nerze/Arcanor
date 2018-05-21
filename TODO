@@ -1,9 +1,9 @@
 Analyse :
 
- - Diagramme de classe
- - Diagramme de séquence
- - signatures / architecture
- - javaDoc
+ OK - Diagramme de classe
+ OK - Diagramme de séquence
+ OK - signatures / architecture
+ OK - javaDoc
  - JUnit
  
 Programmation : 
