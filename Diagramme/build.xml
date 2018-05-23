@@ -8,13 +8,15 @@
   <property name="jar" location="jar"/> 
   <property name="class" location="class"/> 
   <property name="javadoc" location="javaDoc"/> 
+  <property name="main-class"  value="LancementPartie"/>
 
   <target name="clean" 
         description="clean up" > 
     <!-- Delete the ${build} and ${dist} directory trees --> 
     <delete dir="${jar}"/> 
     <delete dir="${class}"/> 
-    <delete dir="${javadoc}"/> 
+    <delete dir="${javadoc}"/>
+    <echo message="Files cleared..."/>
   </target> 
 
   <target name="init" depends="clean"
@@ -28,9 +30,9 @@
   <target name="compile" depends="init" 
         description="compile all files" > 
     <!-- Compile the java code from ${src} into ${build} --> 
-    <javac srcdir="${src}/*.java" destdir="${class}"/> 
-    <javac srcdir="${src}/arcanor/*.java" destdir="${class}"/> 
-    <javac srcdir="${src}/tests/*.java" destdir="${class}"/> 
+    <javac srcdir="${src}" destdir="${class}"/> 
+    <javac srcdir="${src}/arcanor" destdir="${class}"/> 
+    <javac srcdir="${src}/tests" destdir="${class}"/> 
     <echo message="Classes compiled..."/>
   </target>
 
@@ -42,8 +44,11 @@
   </target> 
 
   <target name="jar" depends="compile">
-    <mkdir dir="${jar}"/>
-    <jar destfile="${jar}/sdf.jar" basedir="${src}"/>
+    <jar destfile="${jar}.jar" basedir="${class}">
+       <manifest>
+	  <attribute name="Main-Class" value="${main-class}"/>
+       </manifest>
+    </jar>
     <echo message="Jar created..."/>
   </target>
 </project>
