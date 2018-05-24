@@ -47,7 +47,7 @@ public class MainMenu extends Menu{
 			
 		} if (i == 3) {
 			
-			
+			gameMenu();
 			
 		}
 		
