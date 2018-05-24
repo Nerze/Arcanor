@@ -36,7 +36,20 @@ public class GameMenu extends Menu{
 	/**
 	 * Fonction d'affichage
 	 */
-	public void display(){}
+	public void display(){
+		println("===== ARCANOR =====");
+		println("=== 1 : New game ===");
+		println("=== 2 : Load Game ===");
+		println("=== Other : Exit ===");
+		Scanner sc = new Scanner(System.in);
+		int i = sc.nextInt();
+		if(i==1){
+			startPlay();
+		}
+		else if(i==2){
+			loadMenu();
+		}	
+    	 }
 
 	/**
 	 * Fonction de retour arrière du menu
