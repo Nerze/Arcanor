@@ -1,4 +1,5 @@
 package arcanor;
+import System.out;
 
 public class LoadMenu extends Menu{
 
