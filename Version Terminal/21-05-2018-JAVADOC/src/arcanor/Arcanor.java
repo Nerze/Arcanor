@@ -1,4 +1,5 @@
 package arcanor;
+import System.out;
 
 /**
  * Cette classe est la classe qui lance le jeu
