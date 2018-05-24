@@ -1,5 +1,7 @@
 package arcanor;
 
+import java.util.Scanner;
+
 /**
  * Cette classe est le menu permettant de modifier les paramètres de la partie
  */
@@ -56,7 +58,8 @@ public class ParamMenu extends Menu{
 		System.out.println("2. changer le nombre de joueur (non accessible en version beta)");
 		System.out.println("3. Retour au menu de lancement");
 		
-		int i = System.in;
+		Scanner sc = new Scanner(System.in);
+		int i = sc.nextInt();
 		while (i != 3) {}
 		
 		if (i = 3) {
