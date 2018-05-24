@@ -1,4 +1,5 @@
 package arcanor;
+import System.out;
 
 /**
  * Cette classe est le menu permettant de charger une partie
