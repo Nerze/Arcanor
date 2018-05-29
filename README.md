@@ -2,14 +2,14 @@
 
 TO-DO list :
 
-  Pre-Partiels :
+Pre-Partiels :
   
 - Les classes
 - Les tests
 - L'interface
 - La javaDoc
 
-  Post-Partiels :
+Post-Partiels :
   
 - La partie graphique
 
