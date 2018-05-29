@@ -1,5 +1,7 @@
 package arcanor;
 
+import java.util.Scanner;
+
 /**
  * Cette classe est le menu principal du jeu
  */
@@ -34,7 +36,8 @@ public class MainMenu extends Menu{
 		System.out.println("2. Menu des Scores");
 		System.out.println("3. Quitter le jeu");
 		
-		int i = System.in;
+	    Scanner sc = new Scanner(System.in);
+		int i = sc.nextInt();
 		while (i > 3 || i < 0) {}
 		
 		if (i == 3) {
