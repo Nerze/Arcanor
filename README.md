@@ -1,6 +1,6 @@
 # Arcanor
 
-TO-DO list :
+TO-DO General :
 
 Pre-Partiels :
   
@@ -12,4 +12,16 @@ Pre-Partiels :
 Post-Partiels :
   
 - La partie graphique
+- ...
+
+TO-DO Rapide :
+
+- Mettre des "import System.out.*;" PARTOUT
+- Arcanor.java -3 FIN
+- GameBoard.java -1 YC
+- LoadMenu.java -2 GG
+- MainMenu.java -2 GG
+- ParamMenu.java -2 GG
+- ScoreMenu.java -2 GG
+- StartMenu.java -2 GG
 
