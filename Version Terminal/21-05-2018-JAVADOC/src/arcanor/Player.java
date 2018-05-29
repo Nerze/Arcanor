@@ -3,7 +3,7 @@ package arcanor;
 /**
  * Cette classe représente un joueur
  */
-public class Player{
+public abstract class Player{
    /**
     * variable d'humanité, true si humain
     */
@@ -32,6 +32,6 @@ public class Player{
     * Fonction demandant les entrées clavier pour jouer
     * @return le tableau d'actions a effectuer
     */
-   public int[][] playTurn(){}
+   public abstract int[][] playTurn();
 
 }
