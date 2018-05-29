@@ -1,5 +1,6 @@
 package arcanor;
 import java.util.ArrayList;
+import System.out.*;
 
 /**
  * Cette classe représente un plateau de jeu avec son déroulement
