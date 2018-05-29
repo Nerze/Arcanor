@@ -1,4 +1,5 @@
 package arcanor;
+import System.out;
 
 /**
  * Cette classe représente une pièce du jeu
@@ -38,11 +39,7 @@ public class Piece{
      * Getter de color
      * @return la couleur de la pièce
      */
-	public int getColor(){
-	   
-	   return this.color;
-	   
-	}
+	public int getColor(){return this.color;}
 
 	/**
 	 * Setter de color
@@ -58,11 +55,7 @@ public class Piece{
      * Getter de value
      * @return la valeur de la pièce
      */
-	public int getValue(){
-		
-		return this.value;
-		
-	}
+	public int getValue(){return this.value;}
 
     /**
      * Setter de value
@@ -70,7 +63,12 @@ public class Piece{
      */
 	public void setValue(int value){
 		
-		this.value = value;
+		if(value<=4 && value>=1){
+			this.value = value;
+		}
+		else{
+			println("Piece.setValue() : ERROR value invalid");
+		}
 		
 	}
 
@@ -78,11 +76,7 @@ public class Piece{
      * Getter de contain
      * @return le contenu de la pièce
      */
-	public Piece getContain(){
-		
-		return this.contain;
-		
-	}
+	public Piece getContain(){return this.contain;}
 
     /**
      * Setter de contain
