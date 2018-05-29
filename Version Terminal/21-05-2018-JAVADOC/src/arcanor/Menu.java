@@ -21,11 +21,11 @@ public abstract class Menu{
 	/**
 	 * Fonction d'affichage
 	 */
-	public void display(){}
+	public abstract void display();
 
 	/**
 	 * Fonction de retour arrière du menu
 	 */
-	public void back(){}
+	public abstract void back();
 
 }
