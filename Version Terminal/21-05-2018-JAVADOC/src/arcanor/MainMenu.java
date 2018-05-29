@@ -11,8 +11,6 @@ public class MainMenu extends Menu{
 	 * Fonction menant vers GameMenu
 	 */
 	public void lauchGame(){
-		
-		Runtime.getRuntime().exec("clear");
 		nouvMenu = new ScoreMenu();
 		
 	}
@@ -21,37 +19,33 @@ public class MainMenu extends Menu{
 	 * Fonction menant vers ScoreMenu
 	 */
 	public void scoreMenu(){
-		
-		Runtime.getRuntime().exec("clear");
 		ScoreMenu nouvMenu = new ScoreMenu();
-		
 	}
 
 	/**
      * Fonction d'affichage
      */
     public void display(){
-		
-		System.out.println("1. Lancer le jeu");
-		System.out.println("2. Menu des Scores");
-		System.out.println("3. Quitter le jeu");
+		Runtime.getRuntime().exec("clear");
+		System.out.println("==== Arcanor ====");
+		System.out.println("=== 1. Start Game ===");
+		System.out.println("=== 2. Scores ===");
+		System.out.println("=== Other. Quitter le jeu ===");
 		
 	    Scanner sc = new Scanner(System.in);
 		int i = sc.nextInt();
 		while (i > 3 || i < 0) {}
 		
-		if (i == 3) {
-			
-			back();
+		if (i == 1) {
+			gameMenu();
 			
 		} if (i == 2) {
 			
 			scoreMenu();
 			
-		} if (i == 3) {
-			
-			gameMenu();
-			
+		}
+	    else {
+			back();
 		}
 		
 	}
