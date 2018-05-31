@@ -1,47 +1,48 @@
 package arcanor;
+import System.out.*;
 
 /**
- * Cette classe est le menu de lancement d'une partie (création)
+ * This class represent the menu that create a new game from void
  */
 public class StartMenu extends Menu{
 
 	/**
-	 * le nombre de joueurs humain
+	 * Number of Human's Player
 	 */
 	private int playerNb;
 
 	/**
-	 * le tableau de paramètres
+	 * Settings's table
 	 */
 	private ParamMenu startParams;
 
 	/**
-	 * Le constructeur
-	 * @param nbJoueurs le nombre de joueurs
+	 * The constructor
+	 * @param nbJoueurs Number of Human's Player
 	 */
 	public StartMenu(int nbJoueurs){}
 
 	/**
-	 * Getter de playerNb
-	 * @return le nombre de joueurs humain
+	 * Getter of playerNb
+	 * @return Number of Human's Player
 	 */
 	public int getPlayerNb(){}
 
 	/**
-	 * Setter de playerNb
-	 * @param playerNb le nombre a attribuer
+	 * Setter of playerNb
+	 * @param playerNb the new number
 	 */
 	public void setPlayerNb(int playerNb){}
 
 	/**
-	 * Setter de nomJoueurs
-	 * @param nomJoueurs [description]
+	 * Setter of nomJoueurs
+	 * @param nomJoueurs the new Players's name table
 	 */
 	public void setNomJoueurs(String[] nomJoueurs){}
 
 	/**
-	 * Getter de startParams
-	 * @return le tableau de paramètres
+	 * Getter of startParams
+	 * @return Settings's table
 	 */
    public ParamMenu getStartParams(){}
 
