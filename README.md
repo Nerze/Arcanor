@@ -15,16 +15,19 @@ Post-Partiels :
 - ...
 
 TO-DO Rapide :
-
-- Mettre des "import static java.lang.System.out;" PARTOUT (pour pouvoir utiliser out.println())
-- Arcanor.java -3 FIN
 - GameBoard.java -1 YC
 - LoadMenu.java -2 GG
 - MainMenu.java -2 GG
 - ParamMenu.java -2 GG
 - ScoreMenu.java -2 GG
 - StartMenu.java -2 GG
+- Arcanor.java -3 FIN
+
+Tâches fini :
+- Mettre des "import static java.lang.System.out;" PARTOUT (pour pouvoir utiliser out.println())
+
 FAIT - à Tester :
 Player.java
 Piece.java
-FINI :
+
+FINI (point à la ligne) :
