@@ -40,7 +40,6 @@ public abstract class Player{
 
 	/**
 	 * Method that ask input to the Player, Human or not
-	 * @return a table that represent the action to perform
 	 */
 	public abstract void playTurn();
 
