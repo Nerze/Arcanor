@@ -9,7 +9,7 @@ public class Piece{
 	/**
 	 * Piece's color
 	 */
-	private int color;
+	private boolean color;
 
 	/**
 	 * Piece's value
@@ -27,7 +27,7 @@ public class Piece{
 	 * @param value Piece's value
 	 * @param contain Piece's content
 	 */
-	public Piece(int color, int value, Piece contain){
+	public Piece(boolean color, int value, Piece contain){
 	   
 	   this.color = color;
 	   this.value = value;
@@ -39,13 +39,13 @@ public class Piece{
 	 * Getter of color
 	 * @return Piece's color
 	 */
-	public int getColor(){return this.color;}
+	public boolean getColor(){return this.color;}
 
 	/**
 	 * Setter of color
 	 * @param color the new color
 	 */
-	public void setColor(int color){
+	public void setColor(boolean color){
 	
 		this.color = color;
 	
