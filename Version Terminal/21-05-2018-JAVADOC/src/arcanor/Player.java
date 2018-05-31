@@ -19,23 +19,29 @@ public abstract class Player{
 	private String name;
 
 	/**
+	 * Player's color
+	 */
+	private boolean color;
+		
+	/**
 	 * The constructor
 	 * @param type Human or not
 	 * @param name Player's name
 	 */
-	public Player(boolean type, String name){
+	public Player(boolean type, String name, boolean color){
 		this.human=type;
 		if(name==null){
 			name="";
 			Sytem.out.println("Player() ERROR : name is null");
 		}
 		this.name=name;
+		this.color=color;
 	}
 
 	/**
 	 * Method that ask input to the Player, Human or not
 	 * @return a table that represent the action to perform
 	 */
-	public abstract int[][] playTurn();
+	public abstract void playTurn();
 
 }
