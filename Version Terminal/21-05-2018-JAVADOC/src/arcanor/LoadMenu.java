@@ -2,40 +2,41 @@ package arcanor;
 import System.out;
 
 /**
- * Cette classe est le menu permettant de charger une partie
+ * This class represent the menu to load saved game
  */
 public class LoadMenu extends Menu{
 
    /**
-    * Variable determinant le mode de jeu
+    * True for PvP
+    * False for PvIA
     */
    private boolean mode;
 
    /**
-    * Le Contructeur
+    * The constructor
     */
    public LoadMenu(){}
 
    /**
-    * Getter de mode
-    * @return le mode actuel
+    * Getter of mode
+    * @return the current mode
     */
    public boolean getMode(){}
 
    /**
-    * Setter de mode
-    * @param mode mode a changer
+    * Setter of mode
+    * @param mode the new mode
     */
    public void setMode(boolean mode){}
 
    /**
-    * Fonction d'affichage
+    * Printing method
     */
    public void display(){}
 
    /**
-	 * Fonction de retour arrière du menu
-	 */
+    * Method to get back to the previous menu
+    */
    public void back(){}
       
 }
