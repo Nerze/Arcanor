@@ -1,37 +1,41 @@
 package arcanor;
+import java.out.*;
 
 /**
- * Cette classe représente un joueur
+ * This class represent a Player
  */
 public abstract class Player{
-   /**
-    * variable d'humanité, true si humain
-    */
-   private boolean human;
+	
+	/**
+	 * Turing's test,
+	 * True if Human
+	 * False if IA
+	 */
+	private boolean human;
 
-   /**
-    * nom du joueur
-    */
-   private String name;
+	/**
+	 * Player's name
+	 */
+	private String name;
 
-   /**
-    * Le constructeur
-    * @param type humain ou non
-    * @param name nom du joueur
-    */
-   public Player(boolean type, String name){
-	   this.human=type;
-	   if(name==null){
-		   name="";
-		   Sytem.out.println("Player() ERROR : name is null");
-	   }
-	   this.name=name;
-   }
+	/**
+	 * The constructor
+	 * @param type Human or not
+	 * @param name Player's name
+	 */
+	public Player(boolean type, String name){
+		this.human=type;
+		if(name==null){
+			name="";
+			Sytem.out.println("Player() ERROR : name is null");
+		}
+		this.name=name;
+	}
 
-   /**
-    * Fonction demandant les entrées clavier pour jouer
-    * @return le tableau d'actions a effectuer
-    */
-   public abstract int[][] playTurn();
+	/**
+	 * Method that ask input to the Player, Human or not
+	 * @return a table that represent the action to perform
+	 */
+	public abstract int[][] playTurn();
 
 }
