@@ -5,13 +5,6 @@ import java.out.*;
  * This class represent a Player
  */
 public abstract class Player{
-	
-	/**
-	 * Turing's test,
-	 * True if Human
-	 * False if IA
-	 */
-	private boolean human;
 
 	/**
 	 * Player's name
@@ -28,7 +21,7 @@ public abstract class Player{
 	 * @param type Human or not
 	 * @param name Player's name
 	 */
-	public Player(boolean type, String name, boolean color){
+	public Player(String name, boolean color){
 		this.human=type;
 		if(name==null){
 			name="";
@@ -37,6 +30,8 @@ public abstract class Player{
 		this.name=name;
 		this.color=color;
 	}
+	
+	public boolean getColor(){return this.color;}
 
 	/**
 	 * Method that ask input to the Player, Human or not

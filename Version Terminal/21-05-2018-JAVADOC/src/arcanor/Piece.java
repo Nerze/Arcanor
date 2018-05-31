@@ -1,32 +1,32 @@
 package arcanor;
-import System.out;
+import static java.lang.System.out;
 
 /**
- * This class represent a piece of the game
+ * Cette classe représente une pièce du jeu
  */
 public class Piece{
 
-	/**
-	 * Piece's color
-	 */
+    /**
+     * la couleur de la pièce
+     */
 	private boolean color;
 
-	/**
-	 * Piece's value
-	 */
+    /**
+     * la valeur de la pièce
+     */
 	private int value;
 
-	/**
-	 * Piece's content
-	 */
+    /**
+     * le contenu de la pièce
+     */
 	private Piece contain;
 
-	/**
-	 * The constructor
-	 * @param color Piece's color
-	 * @param value Piece's value
-	 * @param contain Piece's content
-	 */
+    /**
+     * le Contructeur
+     * @param color la couleur de la pièce
+     * @param value la valeur de la pièce
+     * @param contain le contenu de la pièce
+     */
 	public Piece(boolean color, int value, Piece contain){
 	   
 	   this.color = color;
@@ -35,57 +35,57 @@ public class Piece{
 	   
 	}
 
-	/**
-	 * Getter of color
-	 * @return Piece's color
-	 */
+    /**
+     * Getter de color
+     * @return la couleur de la pièce
+     */
 	public boolean getColor(){return this.color;}
 
 	/**
-	 * Setter of color
-	 * @param color the new color
-	 */
+	 * Setter de color
+     * @param color la couleur a attribuer
+     */
 	public void setColor(boolean color){
 	
 		this.color = color;
 	
 	}
 
-	/**
-	 * Getter of value
-	 * @return Piece's value
-	 */
+    /**
+     * Getter de value
+     * @return la valeur de la pièce
+     */
 	public int getValue(){return this.value;}
 
-	/**
-	 * Setter of value
-	 * @param value the new value
-	 */
+    /**
+     * Setter de value
+     * @param value la valeur a attribuer
+     */
 	public void setValue(int value){
 		
 		if(value<=4 && value>=1){
 			this.value = value;
 		}
 		else{
-			println("Piece.setValue() : ERROR value invalid");
+			out.println("Piece.setValue() : ERROR value invalid");
 		}
 		
 	}
 
-	/**
-	 * Getter of contain
-	 * @return Piece's content
-	 */
+    /**
+     * Getter de contain
+     * @return le contenu de la pièce
+     */
 	public Piece getContain(){return this.contain;}
 
-	/**
-	 * Setter of contain
-	 * @param contain the new content
-	 */
+    /**
+     * Setter de contain
+     * @param contain le contenu a attribuer
+     */
 	public void setContain(Piece contain){
 		
 		this.contain = contain;
 		
 	}
-	  
+      
 }
