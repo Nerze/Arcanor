@@ -16,7 +16,7 @@ Post-Partiels :
 
 TO-DO Rapide :
 
-- Mettre des "import System.out.*;" PARTOUT
+- Mettre des "import static java.lang.System.out;" PARTOUT (pour pouvoir utiliser out.println())
 - Arcanor.java -3 FIN
 - GameBoard.java -1 YC
 - LoadMenu.java -2 GG
