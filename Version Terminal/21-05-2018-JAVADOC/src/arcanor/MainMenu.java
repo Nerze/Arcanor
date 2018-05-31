@@ -1,62 +1,50 @@
 package arcanor;
-
+import System.out.*;
 import java.util.Scanner;
 
 /**
- * Cette classe est le menu principal du jeu
+ * This class represent the main menu
  */
 public class MainMenu extends Menu{
 	
 	/**
-	 * Fonction menant vers GameMenu
+	 * Method that redirect to GameMenu
 	 */
 	public void lauchGame(){
 		nouvMenu = new ScoreMenu();
-		
 	}
 
 	/**
-	 * Fonction menant vers ScoreMenu
+	 * Method that redirect to ScoreMenu
 	 */
 	public void scoreMenu(){
 		ScoreMenu nouvMenu = new ScoreMenu();
 	}
 
 	/**
-     * Fonction d'affichage
-     */
+    	 * Printing method
+    	 */
     public void display(){
-		Runtime.getRuntime().exec("clear");
-		System.out.println("==== Arcanor ====");
-		System.out.println("=== 1. Start Game ===");
-		System.out.println("=== 2. Scores ===");
-		System.out.println("=== Other. Quitter le jeu ===");
-		
-	    Scanner sc = new Scanner(System.in);
-		int i = sc.nextInt();
-		while (i > 3 || i < 0) {}
-		
+	Runtime.getRuntime().exec("clear");
+	System.out.println("==== Arcanor ====");
+	System.out.println("=== 1. Start Game ===");
+	System.out.println("=== 2. Scores ===");
+	System.out.println("=== Other. Quitter le jeu ===");
+	
+	Scanner sc = new Scanner(System.in);
+	int i = sc.nextInt();
+	while (i > 3 || i < 0) {}
 		if (i == 1) {
 			gameMenu();
-			
-		} if (i == 2) {
-			
+		}else if (i == 2) {
 			scoreMenu();
-			
-		}
-	    else {
+		}else {
 			back();
 		}
-		
 	}
 
     /**
-	 * Fonction de retour arrière du menu
-	 */
-    public void back(){
-		
-		
-		
-	}
-
+     * Method to get back to the previous menu
+     */
+    public void back(){}
 }
