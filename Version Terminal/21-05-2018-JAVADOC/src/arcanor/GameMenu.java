@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import System.out;
 
 /**
- * Cette classe est le menu permettant de rediriger vers les pages de lancement de parties
+ * This class represent the menu that redirect to launcher menu, New Game or Load Game
  */
 public class GameMenu extends Menu{
 	private int turn;
@@ -23,18 +23,19 @@ public class GameMenu extends Menu{
 		   list.add(new Player(false,"AI"));
 	   }
    	}
+	
 	/**
-	 * Fonction menant vers StartMenu
+	 * Method that redirect to StartMenu
 	 */
 	public void startPlay(){}
 
 	/**
-	 * Fonction menant vers LoadMenu
+	 * Method that redirect to LoadMenu
 	 */
 	public void loadMenu(){}
 
 	/**
-	 * Fonction d'affichage
+	 * Printing method
 	 */
 	public void display(){
 		println("===== ARCANOR =====");
@@ -52,7 +53,7 @@ public class GameMenu extends Menu{
     	 }
 
 	/**
-	 * Fonction de retour arrière du menu
+	 * Method that get back to the previous menu
 	 */
 	public void back(){}
 
