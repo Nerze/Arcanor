@@ -3,61 +3,61 @@ import java.util.ArrayList;
 import System.out.*;
 
 /**
- * Cette classe représente un plateau de jeu avec son déroulement
+ * This class represent a game board
  */
 public class GameBoard{
 
    /**
-    * le numero du tour courrant
+    * The current turn
     */
    private int turn;
 
    /**
-    * le tableau de paramètres de la partie
+    * This table contains main game settings
     */
    private ParamMenu gameParams;
 
    /**
-    * la liste de joueurs dans la partie
+    * Players list in the game
     */
    private ArrayList<Player> playerList;
 
    /**
-    * le tableau de jeu (plateau)
+    * The board that contain pieces
     */
    private Piece[][] board;
 
    /**
-    * Le constructeur
-    * @param params le tableau de paramètres
-    * @param list la liste de joueurs
+    * The constructor
+    * @param params settings table
+    * @param list players list
     */
    public GameBoard(ParamMenu params, ArrayList<Player> list){}
 
    /**
-    * Fonction qui permet la sauvegarde
+    * Method to save the game in an external binary file
     */
    public void save(){}
 
    /**
-    * Getter de turn
-    * @return tour courrant
+    * Getter of turn
+    * @return the current turn
     */
    public int getTurn(){}
 
    /**
-    * Setter de turn
-    * @param turn le nouveau tour
+    * Setter of turn
+    * @param turn the new turn
     */
    public void setTurn(int turn){}
 
    /**
-    * Fonction qui est un tour du jeu
+    * Method that represent a game turn (each player play 1 time)
     */
    public void play(){}
 
    /**
-    * Fonction d'affichage
+    * Printing method
     */
    public void display(){}
 
