@@ -24,4 +24,7 @@ TO-DO Rapide :
 - ParamMenu.java -2 GG
 - ScoreMenu.java -2 GG
 - StartMenu.java -2 GG
-
+FAIT - à Tester :
+Player.java
+Piece.java
+FINI :
