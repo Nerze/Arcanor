@@ -19,8 +19,8 @@ public class GameMenu extends Menu{
 	   if(list==null){
 		   println("GameBoard() ERROR : list is null");
 		   list=new ArrayList<Player>();
-		   list.add(new Player(true,"Player"));
-		   list.add(new Player(false,"AI"));
+		   list.add(new Player(true,"Player",true));
+		   list.add(new Player(false,"AI",false));
 	   }
    	}
 	
