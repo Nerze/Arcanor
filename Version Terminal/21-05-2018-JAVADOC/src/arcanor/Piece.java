@@ -2,31 +2,31 @@ package arcanor;
 import System.out;
 
 /**
- * Cette classe représente une pièce du jeu
+ * This class represent a piece of the game
  */
 public class Piece{
 
-    /**
-     * la couleur de la pièce
-     */
+	/**
+	 * Piece's color
+	 */
 	private int color;
 
-    /**
-     * la valeur de la pièce
-     */
+	/**
+	 * Piece's value
+	 */
 	private int value;
 
-    /**
-     * le contenu de la pièce
-     */
+	/**
+	 * Piece's content
+	 */
 	private Piece contain;
 
-    /**
-     * le Contructeur
-     * @param color la couleur de la pièce
-     * @param value la valeur de la pièce
-     * @param contain le contenu de la pièce
-     */
+	/**
+	 * The constructor
+	 * @param color Piece's color
+	 * @param value Piece's value
+	 * @param contain Piece's content
+	 */
 	public Piece(int color, int value, Piece contain){
 	   
 	   this.color = color;
@@ -35,32 +35,32 @@ public class Piece{
 	   
 	}
 
-    /**
-     * Getter de color
-     * @return la couleur de la pièce
-     */
+	/**
+	 * Getter of color
+	 * @return Piece's color
+	 */
 	public int getColor(){return this.color;}
 
 	/**
-	 * Setter de color
-     * @param color la couleur a attribuer
-     */
+	 * Setter of color
+	 * @param color the new color
+	 */
 	public void setColor(int color){
 	
 		this.color = color;
 	
 	}
 
-    /**
-     * Getter de value
-     * @return la valeur de la pièce
-     */
+	/**
+	 * Getter of value
+	 * @return Piece's value
+	 */
 	public int getValue(){return this.value;}
 
-    /**
-     * Setter de value
-     * @param value la valeur a attribuer
-     */
+	/**
+	 * Setter of value
+	 * @param value the new value
+	 */
 	public void setValue(int value){
 		
 		if(value<=4 && value>=1){
@@ -72,20 +72,20 @@ public class Piece{
 		
 	}
 
-    /**
-     * Getter de contain
-     * @return le contenu de la pièce
-     */
+	/**
+	 * Getter of contain
+	 * @return Piece's content
+	 */
 	public Piece getContain(){return this.contain;}
 
-    /**
-     * Setter de contain
-     * @param contain le contenu a attribuer
-     */
+	/**
+	 * Setter of contain
+	 * @param contain the new content
+	 */
 	public void setContain(Piece contain){
 		
 		this.contain = contain;
 		
 	}
-      
+	  
 }
