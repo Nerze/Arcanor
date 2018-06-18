@@ -21,9 +21,4 @@ public abstract class Menu{
 	 */
 	public abstract void display();
 
-	/**
-	 * Method to get back to the previous menu
-	 */
-	public abstract void back();
-
 }

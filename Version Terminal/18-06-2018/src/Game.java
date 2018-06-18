@@ -2,13 +2,14 @@ package arcanor;
 import java.util.Scanner;
 public class Game{
 	private Board board;
-	Player player1;
-	Player player2;
+	private Player player1;
+	private Player player2;
 	private final int DEFAULT_HEIGHT=7;
-	private final int DEFAULT_WIDTH=8;
+	private final int DEFAULT_WIDTH=3;
 	public Game(ParamMenu params){
 		int width=Integer.parseInt(params.getTabParams()[1]);
 		int height=Integer.parseInt(params.getTabParams()[0]);
+		int vict = Integer.parseInt(params.getTabParams()[5]);
 		if(width<1){
 			System.out.println("Game() ERROR : width invalid");
 			width=DEFAULT_WIDTH;
@@ -17,9 +18,11 @@ public class Game{
 			System.out.println("Game() ERROR : height invalid");
 			height=DEFAULT_HEIGHT;
 		}
-		width=DEFAULT_WIDTH;
-		height=DEFAULT_HEIGHT;
-		this.board= new Board(width,height);
+		if(vict<1){
+			System.out.println("Game() ERROR : points to victory invalid");
+			vict=width*4;
+		}
+		this.board= new Board(width,height,vict);
 		int nbHumans= Integer.parseInt(params.getTabParams()[2]);
 		if(nbHumans>0){
 			this.player1= new HumanPlayer(params.getTabParams()[3], true, this.board);

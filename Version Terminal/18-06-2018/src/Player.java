@@ -33,7 +33,7 @@ public abstract class Player{
 			System.out.println("Player() ERROR : name is null");
 		}
 		if(board==null){
-			board=new Board(-1,-1);
+			board=new Board(-1,-1,-1);
 			System.out.println("Player() ERROR : board is null");
 		}
 		this.name=name;

@@ -13,14 +13,16 @@ public class HumanPlayer extends Player{
 		while(!valid){
 			System.out.println(this.board.displayGrid());
 			System.out.println("Move from row ?");
-			int xOr= in.nextInt();
+			int xOr= in.nextInt()-1;
 			System.out.println("Move from line ?");
-			int yOr= in.nextInt();
+			int yOr= in.nextInt()-1;
 			System.out.println("Move to row ?");
-			int xDest= in.nextInt();
+			int xDest= in.nextInt()-1;
 			System.out.println("Move to line ?");
-			int yDest= in.nextInt();
-			valid=this.board.movePiece(xOr,yOr, xDest, yDest,this.color);
+			int yDest= in.nextInt()-1;
+			System.out.println("Empty piece ? yes/no");
+			boolean empty = in.nextLine().equalsIgnoreCase("yes");
+			valid=this.board.movePiece(xOr,yOr, xDest, yDest,this.color, empty);
 			if(!valid){
 				System.out.println("You cannot perform that move !");
 			}

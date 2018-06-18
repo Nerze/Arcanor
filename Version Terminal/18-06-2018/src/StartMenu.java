@@ -1,5 +1,6 @@
 package arcanor;
 import java.util.Scanner;
+import java.io.IOException;
 
 /**
  * This class represent the menu that create a new game from void
@@ -21,32 +22,35 @@ public class StartMenu extends Menu{
 		}
 	
 	public void display(){
-		int in=0;
-		boolean valid=false;
-		while(!valid){
-			System.out.println("Nouvelle Partie");
-			System.out.println("1-Parametres");
-			System.out.println("2-Commencer");
-			System.out.println("0- Retour");
-			Scanner sc = new Scanner(System.in);
-			in= sc.nextInt();
-			if(in>=0 && in <=2){
-				valid=true;
-			}
+		try{
+			Runtime.getRuntime().exec("clear");
 		}
-		boolean ret=false;
-		switch(in){
-			case 1 :
-				this.startParams.display();
-				this.display();
-				break;
-			case 2 :
-				Game game= new Game(startParams);
-				ret = game.start();
-				if(!ret){
-					this.display();
+		catch(IOException io){
+		}
+		finally{
+			int in=0;
+			Scanner sc = new Scanner(System.in);
+			boolean valid=false;
+			while(!valid){
+				System.out.println("Nouvelle Partie");
+				System.out.println("1-Parametres");
+				System.out.println("2-Commencer");
+				System.out.println("0- Retour");
+				in= sc.nextInt();
+				if(in>=0 && in <=2){
+					valid=true;
 				}
-				break;
+			}
+			switch(in){
+				case 1 :
+					this.startParams.display();
+					this.display();
+					break;
+				case 2 :
+					Game game= new Game(startParams);
+					game.start();
+					break;
+			}
 		}
 	}
 
