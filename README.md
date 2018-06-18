@@ -27,7 +27,7 @@ Tâches fini :
 - Mettre des "import static java.lang.System.out;" PARTOUT (pour pouvoir utiliser out.println())
 
 FAIT - à Tester :
-Player.java
-Piece.java
+- Player.java
+- Piece.java
 
 FINI (point à la ligne) :
