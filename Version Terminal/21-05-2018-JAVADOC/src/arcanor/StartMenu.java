@@ -23,7 +23,7 @@ public class StartMenu extends Menu{
 	public void display(){
 		int in=0;
 		boolean valid=false;
-			while(!valid){
+		while(!valid){
 			System.out.println("Nouvelle Partie");
 			System.out.println("1-Parametres");
 			System.out.println("2-Commencer");
