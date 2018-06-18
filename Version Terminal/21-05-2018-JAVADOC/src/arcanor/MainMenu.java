@@ -24,27 +24,30 @@ public class MainMenu extends Menu{
 	/**
     	 * Printing method
     	 */
-    public void display(){
-	Runtime.getRuntime().exec("clear");
-	System.out.println("==== Arcanor ====");
-	System.out.println("=== 1. Start Game ===");
-	System.out.println("=== 2. Scores ===");
-	System.out.println("=== Other. Quitter le jeu ===");
+	public void display(){
+		Runtime.getRuntime().exec("clear");
+		System.out.println("==== Arcanor V0.1 ====");
+		System.out.println("=== 1. Start Game ===");
+		System.out.println("=== 2. Scores ===");
+		System.out.println("=== Other. Quitter le jeu ===");
 	
-	Scanner sc = new Scanner(System.in);
-	int i = sc.nextInt();
-	while (i > 3 || i < 0) {}
-		if (i == 1) {
-			gameMenu();
-		}else if (i == 2) {
-			scoreMenu();
-		}else {
-			back();
+		Scanner sc = new Scanner(System.in);
+		int i = sc.nextInt();
+		while (i > 2 || i < 0) {
+			if (i == 1) {
+				gameMenu();
+			}else if (i == 2) {
+				scoreMenu();
+			}else {
+				back();
+			}
 		}
 	}
 
     /**
      * Method to get back to the previous menu
      */
-    public void back(){}
+    public void back(){
+		System.exit(0);
+    }
 }
