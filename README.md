@@ -1,7 +1,7 @@
 # Arcanor
 
 TO-DO General :
-- Modifier diagramme de classe
+- Modifier diagramme de classe : Ajouter save dans Game
 Pre-Partiels :
   
 - Les classes
