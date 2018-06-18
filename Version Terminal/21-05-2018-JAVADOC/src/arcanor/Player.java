@@ -1,5 +1,4 @@
 package arcanor;
-import java.out.*;
 
 /**
  * This class represent a Player
@@ -20,12 +19,13 @@ public abstract class Player{
 	 * The constructor
 	 * @param type Human or not
 	 * @param name Player's name
+	 * @param color the player's color
 	 */
+	 
 	public Player(String name, boolean color){
-		this.human=type;
 		if(name==null){
 			name="";
-			Sytem.out.println("Player() ERROR : name is null");
+			System.out.println("Player() ERROR : name is null");
 		}
 		this.name=name;
 		this.color=color;
@@ -37,5 +37,8 @@ public abstract class Player{
 	 * Method that ask input to the Player, Human or not
 	 */
 	public abstract void playTurn();
+	
+	
+	public String getName(){return  this.name;}
 
 }

@@ -1,5 +1,5 @@
 package arcanor;
-public class Game implements IGame{
+public class Game{
 	private Board board;
 	Player player1;
 	Player player2;
@@ -14,6 +14,8 @@ public class Game implements IGame{
 			System.out.println("Game() ERROR : height invalid");
 			height=DEFAULT_HEIGHT;
 		}
+		width=DEFAULT_WIDTH;
+		height=DEFAULT_HEIGHT;
 		this.board= new Board(width,height);
 		if(mode){
 			
@@ -26,13 +28,13 @@ public class Game implements IGame{
 	
 	public void start(){
 		int winner=0;
-		int nbTours=0;
+		int nbTours=1;
 		while(winner==0){
-			this.player1.play();
+			this.player1.playTurn();
 			nbTours++;
 			winner=this.board.checkWin();
 			if(winner==0){
-				this.player2.play();
+				this.player2.playTurn();
 				nbTours++;
 				winner=this.board.checkWin();
 			}

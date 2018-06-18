@@ -54,8 +54,9 @@ public class Board{
 				}
 				else{//There is a piece at the destination
 					if(this.grid[xDest][yDest].getValue()==this.grid[xOr][yOr].getValue()-1 && this.grid[xDest][yDest].getColor()!=this.grid[xOr][yOr].getColor()){
+						//If you can eat the piece
 						Piece or = this.grid[xOr][yOr];
-						this.grid[xOr][yOr]=or.getContain();
+						this.grid[xOr][yOr]=or.getContain();//The inside of the moving piece is the new piece on this spot
 						or.setContain(this.grid[xDest][yDest]);//put the piece in the bigger one
 						this.grid[xDest][yDest]=or;//Move it to the destination
 						ret=true;
@@ -73,6 +74,12 @@ public class Board{
 		String ret= "Width : "+width+"\n";
 		ret+="Height : "+height+"\n";
 		ret+="Grid : \n";
+		ret+=displayGrid();
+		return ret;
+	}
+	
+	public String displayGrid(){
+		String ret="";
 		for(int y=height-1;y>=0;y--){
 			for(int x=0;x<width;x++){
 				ret+=("| ");
