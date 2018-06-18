@@ -1,0 +1,7 @@
+Commande pour compiler un programme Junit
+
+javac -d ../class -cp .:junit-4.12.jar:hamcrest-core-1.3.jar ../src/arcanor/TestPiece.java
+
+Commande pour éxecuter un programme Junit
+
+java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore TestPiece
