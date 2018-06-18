@@ -1,7 +1,7 @@
 # Arcanor
 
 TO-DO General :
-
+- Modifier diagramme de classe
 Pre-Partiels :
   
 - Les classes
