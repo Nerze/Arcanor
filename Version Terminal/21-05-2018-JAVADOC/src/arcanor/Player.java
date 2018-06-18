@@ -8,27 +8,37 @@ public abstract class Player{
 	/**
 	 * Player's name
 	 */
-	private String name;
+	protected String name;
 
 	/**
 	 * Player's color
 	 */
-	private boolean color;
+	protected boolean color;
+	
+	/**
+	 * The game's board
+	 */
+	protected Board board;
 		
 	/**
 	 * The constructor
-	 * @param type Human or not
-	 * @param name Player's name
-	 * @param color the player's color
+	 * @param board The Game's board
+	 * @param name The player's name
+	 * @param color The player's color
 	 */
 	 
-	public Player(String name, boolean color){
+	public Player(String name, boolean color, Board board){
 		if(name==null){
 			name="";
 			System.out.println("Player() ERROR : name is null");
 		}
+		if(board==null){
+			board=new Board(-1,-1);
+			System.out.println("Player() ERROR : board is null");
+		}
 		this.name=name;
 		this.color=color;
+		this.board=board;
 	}
 	
 	public boolean getColor(){return this.color;}

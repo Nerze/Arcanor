@@ -47,7 +47,7 @@ public class Board{
 		boolean ret=false;
 		if(xOr-xDest<=1 && xDest-xOr<=1 && yOr-yDest<=1 && yDest-yOr<=1 && yDest<this.height && yDest>=0 && yOr<this.height && yOr>=0 && xDest<this.width && xDest>=0 && xOr<this.width && xOr>=0){
 			if(this.grid[xOr][yOr]!=null){
-				if(this.grid[xOr][yOr].color==colorPlayer){//The player tries to move its own piece
+				if(this.grid[xOr][yOr].getColor()==colorPlayer){//The player tries to move its own piece
 					if(this.grid[xDest][yDest]==null){//There is no piece at the destination
 						this.grid[xDest][yDest]=this.grid[xOr][yOr];
 						this.grid[xOr][yOr]=null;

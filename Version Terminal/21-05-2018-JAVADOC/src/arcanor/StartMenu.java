@@ -7,11 +7,6 @@ import java.util.Scanner;
 public class StartMenu extends Menu{
 
 	/**
-	 * Number of Human's Player
-	 */
-	private int playerNb;
-
-	/**
 	 * Settings's table
 	 */
 	private ParamMenu startParams;
@@ -21,24 +16,20 @@ public class StartMenu extends Menu{
 	 * @param nbJoueurs Number of Human's Player
 	 */
 	public StartMenu(int nbJoueurs){
+		super("Nouvelle Partie");
 		this.startParams= new ParamMenu();
 		}
-
-	/**
-	 * Getter of playerNb
-	 * @return Number of Human's Player
-	 */
-	public int getPlayerNb(){}
 	
-	public boolean display(){
+	public void display(){
+		int in=0;
 		boolean valid=false;
 			while(!valid){
 			System.out.println("Nouvelle Partie");
 			System.out.println("1-Parametres");
 			System.out.println("2-Commencer");
 			System.out.println("0- Retour");
-			Scanner scan = new Scanner(System.in);
-			int in= Scanner.nextInt();
+			Scanner sc = new Scanner(System.in);
+			in= sc.nextInt();
 			if(in>=0 && in <=2){
 				valid=true;
 			}
@@ -57,26 +48,12 @@ public class StartMenu extends Menu{
 				}
 				break;
 		}
-		return ret;
 	}
-		
-
-	/**
-	 * Setter of playerNb
-	 * @param playerNb the new number
-	 */
-	public void setPlayerNb(int playerNb){}
-
-	/**
-	 * Setter of nomJoueurs
-	 * @param nomJoueurs the new Players's name table
-	 */
-	public void setNomJoueurs(String[] nomJoueurs){}
 
 	/**
 	 * Getter of startParams
 	 * @return Settings's table
 	 */
-   public ParamMenu getStartParams(){}
+   public ParamMenu getStartParams(){ return this.startParams;}
 
 }
