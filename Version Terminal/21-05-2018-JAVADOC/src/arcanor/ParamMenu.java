@@ -1,5 +1,5 @@
 package arcanor;
-import System.out.*;
+import System.out;
 import java.util.Scanner;
 
 /**
@@ -21,7 +21,12 @@ public class ParamMenu extends Menu{
 	 * The constructor
 	 */
 	public ParamMenu(){
-		this.tabParams = ["7","8","1","Red","Blue"],
+		this.tabParams = new String[5];
+		this.tabParams[0] = "7";
+		this.tabParams[1] = "8";
+		this.tabParams[2] = "1";
+		this.tabParams[3] = "Red";
+		this.tabParams[4] = "Blue";
 		this.display();
 	}
 
@@ -38,7 +43,7 @@ public class ParamMenu extends Menu{
      * @param tabParams le tableau de paramètres
      */
     public void setTabParams(String[] newTab){
-	    	if (newTab.legnth() == tabParams.length()){
+	    if (newTab.length() == tabParams.length()){
 			this.tabParams = tabParams;
 		}else{
 			System.err.println("ERROR - setTabParams - newTab.legnth() != tabParams.length()");
@@ -106,7 +111,7 @@ public class ParamMenu extends Menu{
 				this.tabParams[4] = sc.nextLine();
 			
 			}else if (i == 0) {
-				this.back();
+				//~ this.back();
 			
 			}else{
 				System.err.println("Humm. It seems like you wrote a wrong input. Try again please");
@@ -114,10 +119,10 @@ public class ParamMenu extends Menu{
 		}
 	}
 
-	/**
-	 * Method to get back to the previous menu
-	 */
-	public void back(){
-		this.return;
-	}
+	//~ /**
+	 //~ * Method to get back to the previous menu
+	 //~ */
+	//~ public void back(){
+		//~ this.return;
+	//~ }
 }
