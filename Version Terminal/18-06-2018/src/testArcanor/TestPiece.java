@@ -1,3 +1,4 @@
+package arcanor;
 import junit.framework.TestCase;
 
 
