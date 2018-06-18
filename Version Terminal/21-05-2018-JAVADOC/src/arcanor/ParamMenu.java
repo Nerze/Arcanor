@@ -1,36 +1,35 @@
 package arcanor;
-
+import System.out.*;
 import java.util.Scanner;
 
 /**
- * Cette classe est le menu permettant de modifier les paramètres de la partie
+ * This class represent the settings menu
  */
 public class ParamMenu extends Menu{
 
 	/**
-     * tableau de paramètres codés
-     * 1er emplacement difficulté
-     * 2ème emplacement nb joueur
-     */
-    private String[] tabParams;
+	 * Coded settings into a table
+	 * tab[0] - Vertical dimension of GameBoard
+	 * tab[1] - Horizontal dimension of GameBoard
+	 * tab[2] - Number of Human Player
+	 * tab[3] - Player 1 name
+	 * tab[4] - Player 2 name
+	 */
+	private String[] tabParams;
 
-    /**
-     * Le contructeur
-     */
-    public ParamMenu(){
-	
+	/**
+	 * The constructor
+	 */
+	public ParamMenu(){
 		this.tabParams = ["0", "0"]
-	   
 	}
 
-    /**
-     * Getter de tabParams
-     * @return le tableau de paramètres
-     */
+	/**
+	 * Getter of tabParams
+	 * @return settings table
+	 */
     public String[] getTabParams(){
-		
 		return this.tabParams;
-		
 	}
 
     /**
@@ -38,19 +37,11 @@ public class ParamMenu extends Menu{
      * @param tabParams le tableau de paramètres
      */
     public void setTabParams(String[] tabParams){
-		
 		this.tabParams = tabParams;
-		
-	}
-
-    public void setDifficulte(int niveau){
-		
-		this.tabParams[0] = "1";
-		
 	}
     
     /**
-     * Fonction d'affichage
+     * Printing method
      */
 	public void display(){
 	   
@@ -70,13 +61,11 @@ public class ParamMenu extends Menu{
 	   
 	}
 
-    /**
-     * Fonction de retour arrière du menu
-     */
-    public void back(){
-		
+	/**
+	 * Method to get back to the previous menu
+	 */
+	public void back(){
 		Runtime.getRuntime().exec("clear");
-		
 	}
       
 }

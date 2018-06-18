@@ -1,55 +1,56 @@
 package arcanor;
+import System.out.*;
 
 /**
- * Cette classe est le menu qui permet d'afficher les scores
+ * This class represent the menu that show Scores to the user
  */
 public class ScoreMenu extends Menu{
 
 	/**
-	 * le tableau contenant le nom des joueurs
+	 * The table that contain Player's name
 	 */
 	private Player[] playerList;
 
 	/**
-	 * le tableau contenant le score de chaque joueurs
+	 * The table that contain Player's scores
 	 */
 	private int[] tabScores[];
 
 	/**
-	 * Le constructeur
+	 * The constructor
 	 */
-   public ScoreMenu(){}
+	public ScoreMenu(){}
 
 	/**
-	 * Fonction permettant de charger depuis les fichiers
+	 * Method that load scores from an external file
 	 */
 	public void loadScores(){}
 
 	/**
-	 * Getter de playerList
-	 * @return le tableau des joueurs
+	 * Getter of playerList
+	 * @return Players's table
 	 */
 	public Player[] getPlayerList(){}
 
 	/**
-	 * Getter de tabScores
-	 * @return le tableau des scores
+	 * Getter of tabScores
+	 * @return Scores's table
 	 */
 	public int[] getTabScores(){}
 
 	/**
-	 * Setter de tabScores
-	 * @param tabScores le tableau des scores
+	 * Setter of tabScores
+	 * @param tabScores the new table
 	 */
 	public void setTabScores(int[] tabScores){}
 
 	/**
-	 * Fonction d'affichage
+	 * Printing method
 	 */
 	public void display(){}
 
 	/**
-	 * Fonction de retour arrière du menu
+	 * Method to get back to the previous menu
 	 */
 	public void back(){}
 

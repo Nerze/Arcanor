@@ -1,0 +1,7 @@
+Tableau de parametres :
+String[] tabParams
+tab[0] - Dim du GameBoard Vertical
+tab[1] - Dim du GameBoard Horizontal
+tab[2] - Nombre de joueur Humain
+tab[3] - Nom Joueur 1
+tab[4] - Nom Joueur 2

@@ -1,31 +1,29 @@
 package arcanor;
 
 /**
- * Cette classe abstraite sert de modèle au autres menus
+ * This abstract class allow you to create fast menu
  */
 public abstract class Menu{
 
 	/**
-	 * titre du menu
+	 * Menu's title
 	 */
 	private String title;
 
 	/**
-	 * Le constructeur
-	 * @param title titre a afficher
+	 * The constructor
+	 * @param title the title to print
 	 */
-	public Menu(String title){
-		this.title=title;
-	}
+	public Menu(String title){ this.title=title; }
 	
 	/**
-	 * Fonction d'affichage
+	 * Printing method
 	 */
-	public void display(){}
+	public abstract void display();
 
 	/**
-	 * Fonction de retour arrière du menu
+	 * Method to get back to the previous menu
 	 */
-	public void back(){}
+	public abstract void back();
 
 }
