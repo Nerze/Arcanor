@@ -26,6 +26,7 @@ TO-DO Rapide :
 
 Tâches fini :
 - Mettre des "import static java.lang.System.out;" PARTOUT (pour pouvoir utiliser out.println())
+- Avoir un environnement propre et fonctionel pour les test Junit
 
 FAIT - à Tester :
 - Player.java
