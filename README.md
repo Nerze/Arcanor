@@ -15,7 +15,8 @@ Post-Partiels :
 - ...
 
 TO-DO Rapide :
-- GameBoard.java -1 YC
+- Game.java -1 YC
+- Board.java -1 YC
 - LoadMenu.java -2 GG
 - MainMenu.java -2 GG
 - ParamMenu.java -2 GG
