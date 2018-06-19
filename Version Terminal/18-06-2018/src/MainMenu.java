@@ -11,43 +11,45 @@ public class MainMenu extends Menu{
 	 * Method that redirect to GameMenu
 	 */
 	public void lauchGame(){
-		nouvMenu = new ScoreMenu();
+		GameMenu gm = new GameMenu();
 	}
 
 	/**
 	 * Method that redirect to ScoreMenu
 	 */
 	public void scoreMenu(){
-		ScoreMenu nouvMenu = new ScoreMenu();
+		ScoreMenu sm = new ScoreMenu();
 	}
 
 	/**
-    	 * Printing method
-    	 */
+     * Printing method
+     */
 	public void display(){
-		Runtime.getRuntime().exec("clear");
-		System.out.println("==== Arcanor V0.1 ====");
-		System.out.println("=== 1. Start Game ===");
-		System.out.println("=== 2. Scores ===");
-		System.out.println("=== Other. Quitter le jeu ===");
-	
-		Scanner sc = new Scanner(System.in);
-		int i = sc.nextInt();
-		while (i > 2 || i < 0) {
-			if (i == 1) {
-				gameMenu();
-			}else if (i == 2) {
-				scoreMenu();
-			}else {
-				back();
+		try{
+			int in=0;
+			Scanner sc = new Scanner(System.in);
+			boolean valid=false;
+			while(!valid){
+				Runtime.getRuntime().exec("clear");
+				System.out.println("==== Arcanor V0.1 ====");
+				System.out.println("= 1. Play");
+				System.out.println("= 2. Scores");
+				System.out.println("= 0. Quit");
+				in = sc.nextInt();
+				if(in>=0 && in <=2){
+					valid=true;
+				}
+			}
+			switch(in){
+				case 1 :
+					this.launchGame();
+					break;
+				case 2 :
+					this.scoreMenu();
+					break;
 			}
 		}
+		catch(IOException io){
+		}
 	}
-
-    /**
-     * Method to get back to the previous menu
-     */
-    public void back(){
-		System.exit(0);
-    }
 }
