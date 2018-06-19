@@ -1,60 +1,62 @@
 package arcanor;
 import java.util.ArrayList;
-import System.out;
 
 /**
  * This class represent the menu that redirect to launcher menu, New Game or Load Game
  */
 public class GameMenu extends Menu{
-	private int turn;
-	private ParamMenu gameParams;
-	private ArrayList<Player> playerList;
-	private Piece[][] board;
 	
-	public GameBoard(ParamMenu params, ArrayList<Player> list){
-	   if(params==null){
-		   println("GameBoard() ERROR : params is null");
-		   params= new ParamMenu();
-	   }
-	   if(list==null){
-		   println("GameBoard() ERROR : list is null");
-		   list=new ArrayList<Player>();
-		   list.add(new Player(true,"Player",true));
-		   list.add(new Player(false,"AI",false));
-	   }
+	/**
+	 * The constructor
+	 */
+	public GameMenu(){
+		super("Game Menu");
+		this.display();
    	}
 	
 	/**
 	 * Method that redirect to StartMenu
 	 */
-	public void startPlay(){}
+	public void startMenu(){
+		StartMenu sm = new StartMenu();
+	}
 
 	/**
 	 * Method that redirect to LoadMenu
 	 */
-	public void loadMenu(){}
+	public void loadMenu(){
+		LoadMenu lm = new LoadMenu();
+	}
 
 	/**
-	 * Printing method
-	 */
+	* Printing method
+	*/
 	public void display(){
-		println("===== ARCANOR =====");
-		println("=== 1 : New game ===");
-		println("=== 2 : Load Game ===");
-		println("=== Other : Exit ===");
-		Scanner sc = new Scanner(System.in);
-		int i = sc.nextInt();
-		if(i==1){
-			startPlay();
+		try{
+			int in=0;
+			Scanner sc = new Scanner(System.in);
+			boolean valid=false;
+			while(!valid){
+				Runtime.getRuntime().exec("clear");
+				System.out.println("==== Play Menu ====");
+				System.out.println("= 1. New Game");
+				System.out.println("= 2. Load Game");
+				System.out.println("= 0. Back");
+				in = sc.nextInt();
+				if(in>=0 && in <=2){
+					valid=true;
+				}
+			}
+			switch(in){
+				case 1 :
+					this.startMenu();
+					break;
+				case 2 :
+					this.loadMenu();
+					break;
+			}
 		}
-		else if(i==2){
-			loadMenu();
-		}	
-    	 }
-
-	/**
-	 * Method that get back to the previous menu
-	 */
-	public void back(){}
-
+		catch(IOException io){
+		}
+	}
 }
