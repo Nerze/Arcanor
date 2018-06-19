@@ -19,7 +19,7 @@ public class StartMenu extends Menu{
 	public StartMenu(int nbJoueurs){
 		super("New Game");
 		this.startParams= new ParamMenu();
-		}
+	}
 	
 	public void display(){
 		try{
@@ -61,5 +61,4 @@ public class StartMenu extends Menu{
 	 * @return Settings's table
 	 */
 	public ParamMenu getStartParams(){ return this.startParams; }
-
 }
