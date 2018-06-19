@@ -15,13 +15,10 @@ Post-Partiels :
 - ...
 
 TO-DO Rapide :
-- Game.java -1 YC
-- Board.java -1 YC
+
 - LoadMenu.java -2 GG
 - MainMenu.java -2 GG
-- ParamMenu.java -2 GG
 - ScoreMenu.java -2 GG
-- StartMenu.java -2 GG
 - Arcanor.java -3 FIN
 
 Tâches fini :
@@ -31,5 +28,9 @@ Tâches fini :
 FAIT - à Tester :
 - Player.java
 - Piece.java
+- ParamMenu.java -2 GG
+- Game.java -1 YC
+- Board.java -1 YC
+- StartMenu.java -2 GG
 
 FINI (point à la ligne) :
