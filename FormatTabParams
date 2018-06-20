@@ -5,3 +5,4 @@ tab[1] - Dim du GameBoard Horizontal
 tab[2] - Nombre de joueur Humain
 tab[3] - Nom Joueur 1
 tab[4] - Nom Joueur 2
+tab[5] - Points to win
