@@ -61,7 +61,6 @@ public class ParamMenu extends Menu{
 			Scanner sc = new Scanner(System.in);
 			boolean valid=false;
 			while(!valid){
-				Runtime.getRuntime().exec("clear");
 				System.out.println("==== Parameters ====");
 				System.out.println("= 1. Change Board dimensions");
 				System.out.println("= 2. Change Player's number");
@@ -87,8 +86,11 @@ public class ParamMenu extends Menu{
 					this.modifPoints();
 					break;
 			}
+			if(in!=0){
+				this.display();
+			}
 		}
-		catch(IOException io){
+		catch(Exception io){
 		}
 	}
 	
