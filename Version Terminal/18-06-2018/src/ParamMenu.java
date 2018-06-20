@@ -23,14 +23,13 @@ public class ParamMenu extends Menu{
 	 */
 	public ParamMenu(){
 		super("Parameters");
-		this.tabParams = new String[5];
+		this.tabParams = new String[6];
 		this.tabParams[0] = "7";
 		this.tabParams[1] = "3";
 		this.tabParams[2] = "1";
 		this.tabParams[3] = "Red";
 		this.tabParams[4] = "Blue";
 		this.tabParams[5] = "12";
-		this.display();
 	}
 
 	/**
@@ -47,7 +46,7 @@ public class ParamMenu extends Menu{
      */
     public void setTabParams(String[] newTab){
 	    if (newTab.length >= tabParams.length){
-			this.tabParams = tabParams;
+			this.tabParams = newTab;
 		}else{
 			System.err.println("ERROR - setTabParams() : newTab.legnth < tabParams.length");
 		}

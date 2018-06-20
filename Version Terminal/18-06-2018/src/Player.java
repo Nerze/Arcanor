@@ -1,9 +1,9 @@
 package arcanor;
-
+import java.io.Serializable;
 /**
  * This class represent a Player
  */
-public abstract class Player{
+public abstract class Player implements Serializable{
 
 	/**
 	 * Player's name
@@ -46,7 +46,7 @@ public abstract class Player{
 	/**
 	 * Method that ask input to the Player, Human or not
 	 */
-	public abstract void playTurn();
+	public abstract void playTurn(int numTour);
 	
 	
 	public String getName(){return  this.name;}

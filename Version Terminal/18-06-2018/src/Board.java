@@ -1,5 +1,6 @@
 package arcanor;
-public class Board{
+import java.io.Serializable;
+public class Board implements Serializable{
 	private int width, height, victoryPoints;
 	private final int DEFAULT_HEIGHT = 7;
 	private final int DEFAULT_WIDTH = 3;
@@ -25,8 +26,8 @@ public class Board{
 		for(int i=0; i<(this.width+1)/3;i++){
 			this.grid[i*3][0]=new Piece(true,1,new Piece(true,2,null));
 			this.grid[i*3+1][0]=new Piece(true,3,new Piece(true,4,null));
-			this.grid[i*3+1][this.height-1]=new Piece(false,1,new Piece(true,2,null));
-			this.grid[i*3][this.height-1]=new Piece(false,3,new Piece(true,4,null));
+			this.grid[i*3+1][this.height-1]=new Piece(false,1,new Piece(false,2,null));
+			this.grid[i*3][this.height-1]=new Piece(false,3,new Piece(false,4,null));
 		}
 	}
 			
@@ -125,7 +126,7 @@ public class Board{
 	}
 	
 	public Piece getPiece(int x, int y){
-		return this.board[x][y];
+		return this.grid[x][y];
 	}
 
 }

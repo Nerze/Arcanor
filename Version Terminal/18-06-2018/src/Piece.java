@@ -1,10 +1,10 @@
 package arcanor;
-import static java.lang.System.out;
+import java.io.Serializable;
 
 /**
  * Cette classe représente une pièce du jeu
  */
-public class Piece{
+public class Piece implements Serializable{
 
     /**
      * la couleur de la pièce
@@ -67,7 +67,7 @@ public class Piece{
 			this.value = value;
 		}
 		else{
-			out.println("Piece.setValue() : ERROR value invalid");
+			System.out.println("Piece.setValue() : ERROR value invalid");
 		}
 		
 	}
