@@ -126,7 +126,11 @@ public class Board implements Serializable{
 	}
 	
 	public Piece getPiece(int x, int y){
-		return this.grid[x][y];
+		Piece ret=null;
+		if(x>-1 && y>-1 && x<width && y<height){
+			ret=this.grid[x][y];
+		}
+		return ret;
 	}
 
 }

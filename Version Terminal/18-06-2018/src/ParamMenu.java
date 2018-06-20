@@ -90,92 +90,64 @@ public class ParamMenu extends Menu{
 				this.display();
 			}
 		}
-		catch(Exception io){
+		catch(Exception e){
 		}
 	}
 	
 	
 	public void modifDims(){
 		Scanner sc = new Scanner(System.in);
-		try{
-			Runtime.getRuntime().exec("clear");
-		}
-		catch(IOException io){
-		}
-		finally{
-			System.out.println("==== Parameters ====");
-			System.out.println("= Set Width Factor : (3 by default)");
-			int j = sc.nextInt();
-			while (j <= 0) {
-				System.err.println("Humm. It seems to be a number under 1, try with a higher one.");
-				j = sc.nextInt();
-			}
-			this.tabParams[0] = Integer.toString(j);
-
-			System.out.println("= Set Height : (7 by default)");
+		System.out.println("==== Parameters ====");
+		System.out.println("= Set Width Factor : (3 by default)");
+		int j = sc.nextInt();
+		while (j <= 0) {
+			System.err.println("Humm. It seems to be a number under 1, try with a higher one.");
 			j = sc.nextInt();
-			while (j <= 2) {
-				System.err.println("Humm. It seems to be a number under 3, try with a higher one.");
-				j = sc.nextInt();
-			}
-			this.tabParams[1] = Integer.toString(j);
 		}
+		this.tabParams[0] = Integer.toString(j);
+
+		System.out.println("= Set Height : (7 by default)");
+		j = sc.nextInt();
+		while (j <= 2) {
+			System.err.println("Humm. It seems to be a number under 3, try with a higher one.");
+			j = sc.nextInt();
+		}
+		this.tabParams[1] = Integer.toString(j);
 	}
 	
 	public void modifPlayNb(){
 		Scanner sc = new Scanner(System.in);
-		try{
-			Runtime.getRuntime().exec("clear");
+		System.out.println("==== Parameters ====");
+		System.out.println("= Set number of human players :");
+	
+		int j = sc.nextInt();
+		while ((j < 0) || (j > 2)) {
+			System.err.println("Humm. You can't play with this number of human players.");
+			j = sc.nextInt();
 		}
-		catch(IOException io){
-		}
-		finally{
-			System.out.println("==== Parameters ====");
-			System.out.println("= Set number of human players :");
-		
-			int j = sc.nextInt();
-			while ((j < 0) && (j > 2)) {
-				System.err.println("Humm. You can't play with this number of human players.");
-				j = sc.nextInt();
-			}
-			this.tabParams[2] = Integer.toString(j);
-		}
+		this.tabParams[2] = Integer.toString(j);
 	}
 	
 	public void modifName(){
 		Scanner sc = new Scanner(System.in);
-		try{
-			Runtime.getRuntime().exec("clear");
-		}
-		catch(IOException io){
-		}
-		finally{
-			System.out.println("==== Parameters ====");
-			System.out.println("= Set Player 1 name :");
-			this.tabParams[3] = sc.nextLine();
-			System.out.println("= Set Player 2 name :");
-			this.tabParams[4] = sc.nextLine();
-		}
+		System.out.println("==== Parameters ====");
+		System.out.println("= Set Player 1 name :");
+		this.tabParams[3] = sc.nextLine();
+		System.out.println("= Set Player 2 name :");
+		this.tabParams[4] = sc.nextLine();
 	}
 	
 	public void modifPoints(){
 		Scanner sc = new Scanner(System.in);
-		try{
-			Runtime.getRuntime().exec("clear");
+		System.out.println("==== Parameters ====");
+		System.out.println("= Set number of human players :");
+	
+		int j = sc.nextInt();
+		while ((j < 1)) {
+			System.err.println("Humm. You can't play with this number of points.");
+			j = sc.nextInt();
 		}
-		catch(IOException io){
-		}
-		finally{
-			System.out.println("==== Parameters ====");
-			System.out.println("= Set number of human players :");
-		
-			int j = sc.nextInt();
-			while ((j < 1)) {
-				System.err.println("Humm. You can't play with this number of points.");
-				j = sc.nextInt();
-			}
-			this.tabParams[5] = Integer.toString(j);
-		}
+		this.tabParams[5] = Integer.toString(j);
 	}
 
 	//~ /**

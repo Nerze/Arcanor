@@ -1,6 +1,4 @@
-package arcanor;
-import System.out;
-
+import arcanor.GameMenu;
 /**
  * This class is the main entry, the game launcher
  */
@@ -11,7 +9,7 @@ public class Arcanor{
     * @param arg optionnal arguments
     */
    public static void main(String[] arg) {
-      mm = new MainMenu();
+      GameMenu mm = new GameMenu();
       mm.display();
    }
 }

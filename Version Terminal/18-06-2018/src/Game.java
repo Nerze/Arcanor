@@ -30,15 +30,16 @@ public class Game implements Serializable{
 		int nbHumans= Integer.parseInt(params.getTabParams()[2]);
 		if(nbHumans>0){
 			this.player1= new HumanPlayer(params.getTabParams()[3], true, this.board);
-			if(nbHumans>1){
-				this.player2= new HumanPlayer(params.getTabParams()[4], false, this.board);
-			}
-			else{
-				this.player2= new AIPlayer(params.getTabParams()[4], false, this.board);
-			}
+			
 		}
 		else{
 			this.player1= new AIPlayer(params.getTabParams()[3], true, this.board);
+		}
+		if(nbHumans>1){
+			this.player2= new HumanPlayer(params.getTabParams()[4], false, this.board);
+		}
+		else{
+			this.player2= new AIPlayer(params.getTabParams()[4], false, this.board);
 		}
 		this.nbTours=1;
 		this.turnOf=true;

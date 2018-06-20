@@ -1,5 +1,7 @@
 package arcanor;
 import java.util.ArrayList;
+import java.io.*;
+import java.util.Scanner;
 
 /**
  * This class represent the menu that redirect to launcher menu, New Game or Load Game
@@ -11,7 +13,6 @@ public class GameMenu extends Menu{
 	 */
 	public GameMenu(){
 		super("Game Menu");
-		this.display();
    	}
 	
 	/**
@@ -19,6 +20,7 @@ public class GameMenu extends Menu{
 	 */
 	public void startMenu(){
 		StartMenu sm = new StartMenu();
+		sm.display();
 	}
 
 	/**
@@ -26,6 +28,7 @@ public class GameMenu extends Menu{
 	 */
 	public void loadMenu(){
 		LoadMenu lm = new LoadMenu();
+		lm.display();
 	}
 
 	/**
@@ -41,7 +44,7 @@ public class GameMenu extends Menu{
 				System.out.println("==== Play Menu ====");
 				System.out.println("= 1. New Game");
 				System.out.println("= 2. Load Game");
-				System.out.println("= 0. Back");
+				System.out.println("= 0. Quit");
 				in = sc.nextInt();
 				if(in>=0 && in <=2){
 					valid=true;
@@ -50,9 +53,11 @@ public class GameMenu extends Menu{
 			switch(in){
 				case 1 :
 					this.startMenu();
+					this.display();
 					break;
 				case 2 :
 					this.loadMenu();
+					this.display();
 					break;
 			}
 		}
