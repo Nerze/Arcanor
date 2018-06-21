@@ -99,13 +99,14 @@ public class Game implements Serializable{
 		try{
 			FileReader fileR= new FileReader("saves.savebin");
 			BufferedReader br = new BufferedReader(fileR);
-			String inp=br.readLine();
 			for(int i=0;i<6;i++){
 				int nSave= Integer.parseInt(br.readLine());
 				saves[nSave*2-1]=br.readLine();
+				System.out.println(saves[nSave*2-1]);
 			}
 		}
 		catch(Exception e){
+			e.printStackTrace();
 		}
 		saves[numSave*2-1]=dateFormat.format(date);
 		String output="";
