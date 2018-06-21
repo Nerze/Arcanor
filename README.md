@@ -20,15 +20,9 @@ TO-DO Rapide :
 -Adapter pour ajouter une IHM
 
 Tâches fini :
-- Mettre des "import static java.lang.System.out;" PARTOUT (pour pouvoir utiliser out.println())
 - Avoir un environnement propre et fonctionel pour les test Junit
 
 FAIT - à Tester :
-- Player.java
-- Piece.java
-- ParamMenu.java -2 GG
-- Game.java -1 YC
-- Board.java -1 YC
-- StartMenu.java -2 GG
+- Tout sauf IAPlayer
 
 FINI (point à la ligne) :
