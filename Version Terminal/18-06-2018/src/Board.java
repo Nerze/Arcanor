@@ -80,7 +80,7 @@ public class Board implements Serializable{
 						else{//There is a piece at the destination
 							if(this.grid[xDest][yDest].getValue()==this.grid[xOr][yOr].getValue()+1 && this.grid[xDest][yDest].getColor()!=this.grid[xOr][yOr].getColor()){
 								//If you can eat the piece
-								if(!(colorPlayer==true && yDest==0) || !(colorPlayer==false && yDest==height-1)){//The piece is not on the arrival line
+								if((!(colorPlayer==true && yDest==0)) && (!(colorPlayer==false && yDest==height-1))){//The piece is not on the arrival line
 									Piece or = this.grid[xOr][yOr];
 									this.grid[xOr][yOr]=or.getContain();//The inside of the moving piece is the new piece on this spot
 									or.setContain(this.grid[xDest][yDest]);//put the piece in the bigger one
@@ -108,17 +108,7 @@ public class Board implements Serializable{
 	}
 	
 	public String displayGrid(){
-		String ret="  | ";
-		for(int i=1;i<=width;i++){
-			if(i<10){
-				ret+=i+" ";
-			}
-			else{
-				ret+=i;
-			}
-			ret+=" | ";
-		}
-		ret+="\n";
+		String ret="";
 		for(int y=height-1;y>=0;y--){
 			ret+=(y+1);
 			for(int x=0;x<width;x++){
@@ -138,6 +128,17 @@ public class Board implements Serializable{
 			}
 			ret+=" |"+"\n";
 		}
+		ret+="  | ";
+		for(int i=1;i<=width;i++){
+			if(i<10){
+				ret+=i+" ";
+			}
+			else{
+				ret+=i;
+			}
+			ret+=" | ";
+		}
+		ret+="\n";
 		return ret;
 	}
 	
