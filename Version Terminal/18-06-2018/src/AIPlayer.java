@@ -42,6 +42,17 @@ public class AIPlayer extends Player{
 	}
 	
 	/**
+	 * 
+	 */
+	private boolean isMarked(int h, boolean color){
+		boolean ret = false;
+		if(((color == true) && h == this.board.getHeight()-1) || ((color == false) && h == 0)){
+			ret = true;
+		}
+		return ret;
+	}
+	
+	/**
 	 * The main thread to play
 	 */
 	public void playTurn(int turn){
@@ -53,7 +64,7 @@ public class AIPlayer extends Player{
 		while(!played){
 			width = r.nextInt(this.board.getWidth());
 			height = r.nextInt(this.board.getHeight());
-			if((this.board.getPiece(width, height) != null) && (this.board.getPiece(width, height).getColor() == this.color) && (this.isFree(width, height))){
+			if((this.board.getPiece(width, height) != null) && (this.board.getPiece(width, height).getColor() == this.color) && (this.isFree(width, height)) && !(isMarked(height, this.color))){
 				System.out.println(name + " took the piece : Row " + (width+1) + ", Line " + (height+1));
 				while(!valid){
 					choosen = r.nextInt(8);
