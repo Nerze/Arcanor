@@ -20,9 +20,25 @@ public class AIPlayer extends Player{
 	 * 
 	 */
 	private boolean isFree(int w, int h){
-		boolean ret;
-		if ((w > 0) && (h > 0) && (w < this.board.getWidth()-2) && (h < this.board.getHeight)
-		//TO DO
+		boolean ret = false;
+		
+		if (((w >= 0) && (h+1 >= 0) && (w <= this.board.getWidth()-1) && (h+1 <= this.board.getHeight()-1)) && (this.board.getPiece(w, h+1) == null)){ ret = true; }
+		
+		if (((w+1 >= 0) && (h+1 >= 0) && (w+1 <= this.board.getWidth()-1) && (h+1 <= this.board.getHeight()-1)) && (this.board.getPiece(w+1, h+1) == null)){ ret = true; }
+		
+		if (((w+1 >= 0) && (h >= 0) && (w+1 <= this.board.getWidth()-1) && (h <= this.board.getHeight()-1)) && (this.board.getPiece(w+1, h) == null)){ ret = true; }
+		
+		if (((w+1 >= 0) && (h-1 >= 0) && (w+1 <= this.board.getWidth()-1) && (h-1 <= this.board.getHeight()-1)) && (this.board.getPiece(w+1, h-1) == null)){ ret = true; }
+		
+		if (((w >= 0) && (h-1 >= 0) && (w <= this.board.getWidth()-1) && (h-1 <= this.board.getHeight()-1)) && (this.board.getPiece(w, h-1) == null)){ ret = true; }
+		
+		if (((w-1 >= 0) && (h-1 >= 0) && (w-1 <= this.board.getWidth()-1) && (h-1 <= this.board.getHeight()-1)) && (this.board.getPiece(w-1, h-1) == null)){ ret = true; }
+		
+		if (((w-1 >= 0) && (h >= 0) && (w-1 <= this.board.getWidth()-1) && (h <= this.board.getHeight()-1)) && (this.board.getPiece(w-1, h) == null)){ ret = true; }
+		
+		if (((w-1 >= 0) && (h+1 >= 0) && (w-1 <= this.board.getWidth()-1) && (h+1 <= this.board.getHeight()-1)) && (this.board.getPiece(w-1, h+1) == null)){ ret = true; }
+
+		return ret;
 	}
 	
 	/**
@@ -37,8 +53,7 @@ public class AIPlayer extends Player{
 		while(!played){
 			width = r.nextInt(this.board.getWidth());
 			height = r.nextInt(this.board.getHeight());
-			boolean free = this.isFree(width, height);
-			if((this.board.getPiece(width, height) != null) && (this.board.getPiece(width, height).getColor() == this.color) && (free)){
+			if((this.board.getPiece(width, height) != null) && (this.board.getPiece(width, height).getColor() == this.color) && (this.isFree(width, height))){
 				System.out.println(name + " took the piece : Row " + (width+1) + ", Line " + (height+1));
 				while(!valid){
 					choosen = r.nextInt(8);
@@ -47,7 +62,6 @@ public class AIPlayer extends Player{
 							if (this.board.movePiece(width, height, width, height+1, this.color, r.nextBoolean())){
 								valid = true;
 								played = true;
-								System.out.println(valid+" "+played);
 								System.out.println("And play it in : Row " + (width+1) + ", Line " + (height+2));
 							}
 							break;
@@ -55,7 +69,6 @@ public class AIPlayer extends Player{
 							if (this.board.movePiece(width, height, width+1, height+1, this.color, r.nextBoolean())){
 								valid = true;
 								played = true;
-								System.out.println(valid+" "+played);
 								System.out.println("And play it in : Row " + (width+2) + ", Line " + (height+2));
 							}
 							break;
@@ -63,7 +76,6 @@ public class AIPlayer extends Player{
 							if (this.board.movePiece(width, height, width+1, height, this.color, r.nextBoolean())){
 								valid = true;
 								played = true;
-								System.out.println(valid+" "+played);
 								System.out.println("And play it in : Row " + (width+2) + ", Line " + (height+1));
 							}
 							break;
@@ -71,7 +83,6 @@ public class AIPlayer extends Player{
 							if (this.board.movePiece(width, height, width+1, height-1, this.color, r.nextBoolean())){
 								valid = true;
 								played = true;
-								System.out.println(valid+" "+played);
 								System.out.println("And play it in : Row " + (width+2) + ", Line " + (height));
 							}
 							break;
@@ -79,7 +90,6 @@ public class AIPlayer extends Player{
 							if (this.board.movePiece(width, height, width, height-1, this.color, r.nextBoolean())){
 								valid = true;
 								played = true;
-								System.out.println(valid+" "+played);
 								System.out.println("And play it in : Row " + (width+1) + ", Line " + (height));
 							}
 							break;
@@ -87,7 +97,6 @@ public class AIPlayer extends Player{
 							if (this.board.movePiece(width, height, width-1, height-1, this.color, r.nextBoolean())){
 								valid = true;
 								played = true;
-								System.out.println(valid+" "+played);
 								System.out.println("And play it in : Row " + (width) + ", Line " + (height));
 							}
 							break;
@@ -95,7 +104,6 @@ public class AIPlayer extends Player{
 							if (this.board.movePiece(width, height, width-1, height, this.color, r.nextBoolean())){
 								valid = true;
 								played = true;
-								System.out.println(valid+" "+played);
 								System.out.println("And play it in : Row " + (width) + ", Line " + (height+1));
 							}
 							break;
@@ -103,7 +111,6 @@ public class AIPlayer extends Player{
 							if (this.board.movePiece(width, height, width-1, height+1, this.color, r.nextBoolean())){
 								valid = true;
 								played = true;
-								System.out.println(valid+" "+played);
 								System.out.println("And play it in : Row " + (width) + ", Line " + (height+2));
 							}
 							break;
