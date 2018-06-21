@@ -1,7 +1,7 @@
+package arcanor;
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
-
 
 public class MenuListener implements MouseListener{
 	private JPanel cards;
@@ -9,13 +9,19 @@ public class MenuListener implements MouseListener{
 	public MenuListener(ButtonMenu origin, JPanel cards){
 		if(origin==null){
 			System.out.println("MenuListener() ERROR : origin is null");
-			origin= new ButtonMenu("",1);
+			origin= new ButtonMenu("","1");
 		}
 		this.origin=origin;
+		if(cards==null){
+			System.out.println("MenuListener() ERROR : origin is null");
+			cards = new JPanel(new CardLayout());
+		}
+		this.cards=cards;
 	}
 		
 	public void mouseClicked(MouseEvent e){
-		
+		CardLayout cl = (CardLayout)(cards.getLayout());
+        cl.show(cards, origin.getToMenu());
 	}
 	
 	public void mouseEntered(MouseEvent e){}

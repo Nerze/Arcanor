@@ -1,21 +1,21 @@
+package arcanor;
 import javax.swing.*;
-
 public class ButtonMenu extends JButton{
-	private int toMenu;
+	private String toMenu;
 	
-	public ButtonMenu(String text, int toMenu){
+	public ButtonMenu(String text, String toMenu){
 		super(text);
-		if(toMenu<0){
-			System.out.println("ButtonMenu() ERROR : toMenu invalid");
-			toMenu=0;
+		if(toMenu==null){
+			System.out.println("ButtonMenu() ERROR : toMenu is null");
+			toMenu="";
 		}
 		this.toMenu=toMenu;
 	}
 	
 	
-	public void setToMenu(int toMenu){
-		if(toMenu<1){
-			System.out.println("setToMenu() ERROR : toMenu invalid");
+	public void setToMenu(String toMenu){
+		if(toMenu==null){
+			System.out.println("setToMenu() ERROR : toMenu is null");
 		}
 		else{
 			this.toMenu=toMenu;
@@ -23,6 +23,6 @@ public class ButtonMenu extends JButton{
 	}
 	
 	
-	public int getToMenu(){return this.toMenu;}
+	public String getToMenu(){return this.toMenu;}
 	
 }
