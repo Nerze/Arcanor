@@ -103,10 +103,21 @@ public class Board implements Serializable{
 	}
 	
 	public String displayGrid(){
-		String ret="";
+		String ret="  | ";
+		for(int i=1;i<=width;i++){
+			if(i<10){
+				ret+=i+" ";
+			}
+			else{
+				ret+=i;
+			}
+			ret+=" | ";
+		}
+		ret+="\n";
 		for(int y=height-1;y>=0;y--){
+			ret+=(y+1);
 			for(int x=0;x<width;x++){
-				ret+=("| ");
+				ret+=(" | ");
 				if(grid[x][y]==null){
 					ret+="  ";
 				}
