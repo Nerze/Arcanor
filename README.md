@@ -16,10 +16,8 @@ Post-Partiels :
 
 TO-DO Rapide :
 
-- LoadMenu.java -2 GG
-- MainMenu.java -2 GG
-- ScoreMenu.java -2 GG
-- Arcanor.java -3 FIN
+- playTurn(int numTour) de IAPlayer (GG)
+-Adapter pour ajouter une IHM
 
 Tâches fini :
 - Mettre des "import static java.lang.System.out;" PARTOUT (pour pouvoir utiliser out.println())
