@@ -45,7 +45,13 @@ public class GameMenu extends Menu{
 				System.out.println("= 1. New Game");
 				System.out.println("= 2. Load Game");
 				System.out.println("= 0. Quit");
-				in = sc.nextInt();
+				try{
+					in = sc.nextInt();
+				}
+				catch(InputMismatchException e){
+					System.out.println("Please enter an integer");
+					this.display();
+				}
 				if(in>=0 && in <=2){
 					valid=true;
 				}
