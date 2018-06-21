@@ -26,7 +26,7 @@ catch(InputMismatchException e){
   System.out.println("Please enter an integer");
   this.display();
 }
-
+import java.util.InputMismatchException;
 Tâches fini :
 - Avoir un environnement propre et fonctionel pour les test Junit
 
