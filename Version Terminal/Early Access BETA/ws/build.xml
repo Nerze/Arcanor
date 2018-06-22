@@ -1,0 +1,56 @@
+<project name="Arcanor" default="jar" basedir=".."> 
+    <description> 
+        Build permettant la compilation de tous les fichiers .java
+    </description> 
+
+  <!-- set global properties for this build --> 
+  <property name="src" location="src"/> 
+  <property name="jar" location="jar"/> 
+  <property name="class" location="class"/> 
+  <property name="javadoc" location="javaDoc"/> 
+
+  <target name="clean" 
+        description="clean up" > 
+    <!-- Delete the ${build} and ${dist} directory trees --> 
+    <delete dir="${jar}"/> 
+    <delete dir="${class}"/> 
+    <delete dir="${javadoc}"/>
+    <echo message="Files cleared..."/>
+  </target> 
+
+  <target name="init" depends="clean"
+	description="create all directories" > 
+    <!-- Create the build directory structure used by compile --> 
+    <mkdir dir="${jar}"/> 
+    <mkdir dir="${class}"/> 
+    <mkdir dir="${javadoc}"/> 
+  </target> 
+
+  <target name="compile" depends="init" 
+        description="compile all files" > 
+    <!-- Compile the java code from ${src} into ${build} --> 
+    <javac srcdir="${src}" destdir="${class}"/>
+    <echo message="Classes compiled..."/>
+  </target>
+
+  <target name="javadoc" depends="compile" 
+        description="generate the JavaDoc" > 
+    <!-- Create the javaDoc of all classes --> 
+    <javadoc charset="UTF8" access="private" destdir="${javadoc}" sourcepath="${src}"/> 
+    <echo message="Javadoc created..."/>
+  </target> 
+
+  <target name="jar" depends="compile">
+    <jar destfile="${jar}/Arcanor.jar" basedir="class">
+       <manifest>
+	     <attribute name="Main-Class" value="Arcanor"/>
+       </manifest>
+    </jar>
+    <echo message="Jar created..."/>
+  </target>
+  
+  <target name="run"> 
+    <java jar="${jar}/Arcanor.jar" fork="true"/> 
+  </target> 
+</project>
+
