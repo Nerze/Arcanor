@@ -1,6 +1,7 @@
 package arcanor;
-import java.util.Scanner;
-import java.io.IOException;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * This class represent the settings menu
@@ -17,11 +18,12 @@ public class ParamMenu extends Menu{
 	 * tab[5] - Number of points to win the game
 	 */
 	private String[] tabParams;
+    final static String STARTMENU = "New Game";
 
 	/**
 	 * The constructor
 	 */
-	public ParamMenu(){
+	public ParamMenu(JPanel panel){
 		super("Parameters");
 		this.tabParams = new String[6];
 		this.tabParams[0] = "7";
@@ -30,6 +32,77 @@ public class ParamMenu extends Menu{
 		this.tabParams[3] = "Red";
 		this.tabParams[4] = "Blue";
 		this.tabParams[5] = "12";
+		//Create the JPanels
+		//The back button
+		ButtonMenu back = new ButtonMenu("Back",STARTMENU);
+		
+		//Height of the board
+		JLabel heightInf = new JLabel("Height :");
+		ParamBouton minusHeight= new ParamBouton("-",-1,3);
+		JLabel heightVal = new JLabel(tabParams[0]);
+		ParamBouton plusHeight= new ParamBouton("+",1,3);
+		
+		//Width of the board
+		JLabel widthInf = new JLabel("Width Factor :");
+		ParamBouton minusWidth= new ParamBouton("-",-1,1);
+		JLabel widthVal = new JLabel(tabParams[1]);
+		ParamBouton plusWidth= new ParamBouton("+",1,1);
+		
+		//Score parameter
+		JLabel scoreInf = new JLabel("Score limit :");
+		ParamBouton minusScore= new ParamBouton("-",-1,1);
+		JLabel scoreVal = new JLabel(tabParams[5]);
+		ParamBouton plusScore= new ParamBouton("+",1,1);
+		
+		//Number of human players
+		JLabel nbPlayerInf = new JLabel("Number of human players :");
+		
+		String[] nbPlayerList = {"0", "1", "2"};
+
+		//Create the combo box, for the number of human player
+		JComboBox nbPlayerVal = new JComboBox(nbPlayerList);
+		nbPlayerVal.setSelectedIndex(1);
+		
+		//Player 1 name
+		JLabel play1NameInf = new JLabel("Player 1 name : ");
+		JTextField play1NameVal = new JTextField(tabParams[3],20);
+		
+		//Player 2 name
+		JLabel play2NameInf = new JLabel("Player 2 name : ");
+		JTextField play2NameVal = new JTextField(tabParams[4],20);
+		
+		//adds the components to the panel
+		JComponent[] comps= {heightInf, minusHeight, heightVal, plusHeight};
+		addComp(comps);
+		comps=new JComponent[]{widthInf, minusWidth, widthVal, plusWidth};
+		addComp(comps);
+		comps=new JComponent[]{scoreInf, minusScore, scoreVal, plusScore};
+		addComp(comps);
+		comps=new JComponent[]{nbPlayerInf, nbPlayerVal};
+		addComp(comps);
+		comps = new JComponent[]{play1NameInf, play1NameVal};
+		addComp(comps);
+		comps = new JComponent[]{play2NameInf, play2NameVal};
+		addComp(comps);
+		
+		//adds the listeners
+		back.addMouseListener(new MenuListener(back,panel));
+		
+		minusHeight.addMouseListener(new ParamButtonListener(minusHeight,tabParams,0,heightVal));
+		plusHeight.addMouseListener(new ParamButtonListener(plusHeight,tabParams,0,heightVal));
+		
+		minusWidth.addMouseListener(new ParamButtonListener(minusWidth,tabParams,1,widthVal));
+		plusWidth.addMouseListener(new ParamButtonListener(plusWidth,tabParams,1,widthVal));
+		
+		minusScore.addMouseListener(new ParamButtonListener(minusScore,tabParams,5,scoreVal));
+		plusScore.addMouseListener(new ParamButtonListener(plusScore,tabParams,5,scoreVal));
+		
+		play1NameVal.addFocusListener(new TextFieldParamListener(play1NameVal,tabParams,3));
+		play2NameVal.addFocusListener(new TextFieldParamListener(play2NameVal,tabParams,4));
+		
+		comps=new JComponent[]{back};
+		addComp(comps);
+		
 	}
 
 	/**
@@ -52,108 +125,5 @@ public class ParamMenu extends Menu{
 		}
 	}
     
-    /**
-     * Printing method
-     */
-	public void display(){
-		try{
-			int in=0;
-			Scanner sc = new Scanner(System.in);
-			boolean valid=false;
-			while(!valid){
-				System.out.println("==== Parameters ====");
-				System.out.println("= 1. Change Board dimensions");
-				System.out.println("= 2. Change Player's number");
-				System.out.println("= 3. Change Players name");
-				System.out.println("= 4. Change The number of points to win");
-				System.out.println("= 0. Back");
-				in = sc.nextInt();
-				if(in>=0 && in <=4){
-					valid=true;
-				}
-			}
-			switch(in){
-				case 1 :
-					this.modifDims();
-					break;
-				case 2 :
-					this.modifPlayNb();
-					break;
-				case 3 :
-					this.modifName();
-					break;
-				case 4 :
-					this.modifPoints();
-					break;
-			}
-			if(in!=0){
-				this.display();
-			}
-		}
-		catch(Exception e){
-		}
-	}
-	
-	
-	public void modifDims(){
-		Scanner sc = new Scanner(System.in);
-		System.out.println("==== Parameters ====");
-		System.out.println("= Set Width Factor : (3 by default)");
-		int j = sc.nextInt();
-		while (j <= 0) {
-			System.err.println("Humm. It seems to be a number under 1, try with a higher one.");
-			j = sc.nextInt();
-		}
-		this.tabParams[0] = Integer.toString(j);
 
-		System.out.println("= Set Height : (7 by default)");
-		j = sc.nextInt();
-		while (j <= 2) {
-			System.err.println("Humm. It seems to be a number under 3, try with a higher one.");
-			j = sc.nextInt();
-		}
-		this.tabParams[1] = Integer.toString(j);
-	}
-	
-	public void modifPlayNb(){
-		Scanner sc = new Scanner(System.in);
-		System.out.println("==== Parameters ====");
-		System.out.println("= Set number of human players :");
-	
-		int j = sc.nextInt();
-		while ((j < 0) || (j > 2)) {
-			System.err.println("Humm. You can't play with this number of human players.");
-			j = sc.nextInt();
-		}
-		this.tabParams[2] = Integer.toString(j);
-	}
-	
-	public void modifName(){
-		Scanner sc = new Scanner(System.in);
-		System.out.println("==== Parameters ====");
-		System.out.println("= Set Player 1 name :");
-		this.tabParams[3] = sc.nextLine();
-		System.out.println("= Set Player 2 name :");
-		this.tabParams[4] = sc.nextLine();
-	}
-	
-	public void modifPoints(){
-		Scanner sc = new Scanner(System.in);
-		System.out.println("==== Parameters ====");
-		System.out.println("= Set number of human players :");
-	
-		int j = sc.nextInt();
-		while ((j < 1)) {
-			System.err.println("Humm. You can't play with this number of points.");
-			j = sc.nextInt();
-		}
-		this.tabParams[5] = Integer.toString(j);
-	}
-
-	//~ /**
-	 //~ * Method to get back to the previous menu
-	 //~ */
-	//~ public void back(){
-		//~ this.return;
-	//~ }
 }

@@ -6,6 +6,7 @@ import java.awt.*;
 public class MenuListener implements MouseListener{
 	private JPanel cards;
 	private ButtonMenu origin;
+	final static String QUIT = "Quit";
 	public MenuListener(ButtonMenu origin, JPanel cards){
 		if(origin==null){
 			System.out.println("MenuListener() ERROR : origin is null");
@@ -13,15 +14,20 @@ public class MenuListener implements MouseListener{
 		}
 		this.origin=origin;
 		if(cards==null){
-			System.out.println("MenuListener() ERROR : origin is null");
+			System.out.println("MenuListener() ERROR : cards is null");
 			cards = new JPanel(new CardLayout());
 		}
 		this.cards=cards;
 	}
 		
 	public void mouseClicked(MouseEvent e){
-		CardLayout cl = (CardLayout)(cards.getLayout());
-        cl.show(cards, origin.getToMenu());
+		if(origin.getToMenu().equals(QUIT)){
+			System.exit(0);
+		}
+		else{
+			CardLayout cl = (CardLayout)(cards.getLayout());
+			cl.show(cards, origin.getToMenu());
+		}
 	}
 	
 	public void mouseEntered(MouseEvent e){}

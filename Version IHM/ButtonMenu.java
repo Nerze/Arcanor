@@ -2,12 +2,13 @@ package arcanor;
 import javax.swing.*;
 public class ButtonMenu extends JButton{
 	private String toMenu;
+	final static String QUIT = "Quit";
 	
 	public ButtonMenu(String text, String toMenu){
 		super(text);
 		if(toMenu==null){
 			System.out.println("ButtonMenu() ERROR : toMenu is null");
-			toMenu="";
+			toMenu=QUIT;
 		}
 		this.toMenu=toMenu;
 	}

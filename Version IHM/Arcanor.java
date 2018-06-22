@@ -1,39 +1,32 @@
-package arcanor;
 import java.awt.*;
 import javax.swing.*;
+import arcanor.*;
 
 
 public class Arcanor{
     JPanel cards; //a panel that uses CardLayout
-    final static String BUTTONPANEL = "Card with JButtons";
-    final static String TEXTPANEL = "Card with JTextField";
+    final static String GAMEMENU = "Main Menu";
+    final static String STARTMENU = "New Game";
+    final static String LOADMENU = "Load Menu";
+    final static String PARAMMENU = "Parameters";
+    final static String GAMEBOARD = "Gameboard";
     
     public void addComponentToPane(Container pane) {
-        //Put the JComboBox in a JPanel to get a nicer look.
-        JPanel buttonPane = new JPanel(); //use FlowLayout
-        ButtonMenu button1 = new ButtonMenu("Buttons",BUTTONPANEL);
-        buttonPane.add(button1);
-        ButtonMenu button2 = new ButtonMenu("TextFields",TEXTPANEL);
-        buttonPane.add(button2);
         
-        //Create the "cards".
-        JPanel card1 = new JPanel();
-        card1.add(new JButton("Button 1"));
-        card1.add(new JButton("Button 2"));
-        card1.add(new JButton("Button 3"));
-        
-        JPanel card2 = new JPanel();
-        card2.add(new JTextField("TextField", 20));
-        
-        //Create the panel that contains the "cards".
+        //Create the panel that contains the menus.
         cards = new JPanel(new CardLayout());
-        cards.add(card1, BUTTONPANEL);
-        cards.add(card2, TEXTPANEL);
         
-        pane.add(buttonPane, BorderLayout.PAGE_START);
+        //Create the menus
+        GameMenu game = new GameMenu(cards);
+        StartMenu start = new StartMenu(cards);
+        ParamMenu param = new ParamMenu(cards);
+        
+        //Add them tho the cardLayout panel
+        cards.add(game, GAMEMENU);
+        cards.add(start, STARTMENU);
+        cards.add(param, PARAMMENU);
+        
         pane.add(cards, BorderLayout.CENTER);
-        button1.addMouseListener(new MenuListener(button1, cards));
-        button2.addMouseListener(new MenuListener(button2, cards));
         CardLayout cl = (CardLayout)(cards.getLayout());
     }
     
@@ -44,11 +37,11 @@ public class Arcanor{
      */
     private static void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("CardLayoutDemo");
+        JFrame frame = new JFrame("Arcanor");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         //Create and set up the content pane.
-        CardLayoutDemo demo = new CardLayoutDemo();
+        Arcanor demo = new Arcanor();
         demo.addComponentToPane(frame.getContentPane());
         
         //Display the window.

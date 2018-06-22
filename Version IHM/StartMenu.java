@@ -1,12 +1,16 @@
 package arcanor;
-import java.util.Scanner;
-import java.io.IOException;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * This class represent the menu that create a new game from void
  */
 public class StartMenu extends Menu{
-
+    final static String GAMEBOARD = "Gameboard";
+    final static String GAMEMENU = "Main Menu";
+    final static String PARAMMENU = "Parameters";
+    
 	/**
 	 * Settings's table
 	 */
@@ -16,46 +20,24 @@ public class StartMenu extends Menu{
 	 * The constructor
 	 * @param nbJoueurs Number of Human's Player
 	 */
-	public StartMenu(){
-		super("New Game");
-		this.startParams= new ParamMenu();
-	}
+	public StartMenu(JPanel panel){
+		super("Start Menu");
+		ButtonMenu gameboard = new ButtonMenu("Start New Game",GAMEBOARD);
+		ButtonMenu param = new ButtonMenu("Parameters",PARAMMENU);
+		ButtonMenu back = new ButtonMenu("Back",GAMEMENU);
+		JComponent[] comps= {gameboard};
+		addComp(comps);
+		comps=new JComponent[]{param};
+		addComp(comps);
+		comps=new JComponent[]{back};
+		addComp(comps);
+		gameboard.addMouseListener(new MenuListener(gameboard,panel));
+		param.addMouseListener(new MenuListener(param,panel));
+		back.addMouseListener(new MenuListener(back,panel));
+		
+   	}
 	
-	public void display(){
-		try{
-			Runtime.getRuntime().exec("clear");
-		}
-		catch(IOException io){
-		}
-		finally{
-			int in=0;
-			Scanner sc = new Scanner(System.in);
-			boolean valid=false;
-			
-			while(!valid){
-				System.out.println("==== New Game ====");
-				System.out.println("= 1. Play");
-				System.out.println("= 2. Settings");
-				System.out.println("= 0. Back");
-				in= sc.nextInt();
-				if(in>=0 && in <=2){
-					valid=true;
-				}
-			}
-			
-			switch(in){
-				case 1 :
-					Game game= new Game(startParams);
-					game.start();
-					break;
-				case 2 :
-					this.startParams.display();
-					this.display();
-					break;
-			}
-		}
-	}
-
+	
 	/**
 	 * Getter of startParams
 	 * @return Settings's table
