@@ -1,56 +1,63 @@
 <project name="Arcanor" default="jar" basedir=".."> 
-    <description> 
-        Build permettant la compilation de tous les fichiers .java
-    </description> 
+	<description> 
+		Build permettant la compilation de tous faire
+		ant -create the jar
+		ant run -run the jar
+		ant doc -create the JavaDoc
+	</description> 
 
-  <!-- set global properties for this build --> 
-  <property name="src" location="src"/> 
-  <property name="jar" location="jar"/> 
-  <property name="class" location="class"/> 
-  <property name="javadoc" location="javaDoc"/> 
+	<!-- Set global properties for this build --> 
+	<property name="src" location="src"/> 
+	<property name="jar" location="jar"/> 
+	<property name="class" location="class"/> 
+	<property name="javadoc" location="javaDoc"/> 
 
-  <target name="clean" 
-        description="clean up" > 
-    <!-- Delete the ${build} and ${dist} directory trees --> 
-    <delete dir="${jar}"/> 
-    <delete dir="${class}"/> 
-    <delete dir="${javadoc}"/>
-    <echo message="Files cleared..."/>
-  </target> 
+	<target name="clean" description="Clean up dir and contained files" > 
+		<!-- Delete the ${jar}, ${javadoc} and ${class} directory trees --> 
+		<delete dir="${jar}"/> 
+		<delete dir="${class}"/> 
+		<delete dir="${javadoc}"/>
+		<echo message="Files cleared..."/>
+	</target> 
 
-  <target name="init" depends="clean"
-	description="create all directories" > 
-    <!-- Create the build directory structure used by compile --> 
-    <mkdir dir="${jar}"/> 
-    <mkdir dir="${class}"/> 
-    <mkdir dir="${javadoc}"/> 
-  </target> 
+	<target name="init" depends="clean" description="Create all directories" > 
+		<!-- Create the build directory structure used by compile --> 
+		<mkdir dir="${jar}"/> 
+		<mkdir dir="${class}"/> 
+		<mkdir dir="${javadoc}"/> 
+	</target> 
 
-  <target name="compile" depends="init" 
-        description="compile all files" > 
-    <!-- Compile the java code from ${src} into ${build} --> 
-    <javac srcdir="${src}" destdir="${class}"/>
-    <echo message="Classes compiled..."/>
-  </target>
+	<target name="compile" depends="init" description="Compile all files" > 
+		<!-- Compile the java code from ${src} into ${class} --> 
+		<javac srcdir="${src}" destdir="${class}"/>
+		<echo message="Classes compiled..."/>
+	</target>
 
-  <target name="javadoc" depends="compile" 
-        description="generate the JavaDoc" > 
-    <!-- Create the javaDoc of all classes --> 
-    <javadoc charset="UTF8" access="private" destdir="${javadoc}" sourcepath="${src}"/> 
-    <echo message="Javadoc created..."/>
-  </target> 
+	<target name="jar" depends="compile" description="Generate the Arcanor.jar" >
+		<!-- Create the Arcanor.jar from all classes -->
+		<jar destfile="${jar}/Arcanor.jar" basedir="class">
+			<manifest>
+				<attribute name="Main-Class" value="Arcanor"/>
+			</manifest>
+		</jar>
+		<echo message="Jar created..."/>
+	</target>
 
-  <target name="jar" depends="compile">
-    <jar destfile="${jar}/Arcanor.jar" basedir="class">
-       <manifest>
-	     <attribute name="Main-Class" value="Arcanor"/>
-       </manifest>
-    </jar>
-    <echo message="Jar created..."/>
-  </target>
-  
-  <target name="run"> 
-    <java jar="${jar}/Arcanor.jar" fork="true"/> 
-  </target> 
+	<target name="doc" description="Generate the JavaDoc" > 
+		<!-- Create the javaDoc of all classes --> 
+		<javadoc packagenames="arcanor" sourcepath="${src}" destdir="${javadoc}">
+			<!-- Define which files / directory should get included, we include all -->
+			<fileset dir="${src}">
+					<include name="**" />
+			</fileset>
+		</javadoc>
+		<echo message="Javadoc created..."/>
+	</target> 
+	
+	<target name="run" description="Launch the Game" > 
+		<!-- Launch the game from the jar file -->
+		<java jar="${jar}/Arcanor.jar" fork="true"/> 
+	</target> 
+
 </project>
 
