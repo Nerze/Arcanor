@@ -16,17 +16,8 @@ Post-Partiels :
 
 TO-DO Rapide :
 
-- playTurn(int numTour) de IAPlayer (GG)
 -Adapter pour ajouter une IHM
-Remplacer in.nextInt() par
-try{
-  in = sc.nextInt();
-}
-catch(InputMismatchException e){
-  System.out.println("Please enter an integer");
-  this.display();
-}
-import java.util.InputMismatchException;
+
 Tâches fini :
 - Avoir un environnement propre et fonctionel pour les test Junit
 
