@@ -2,6 +2,7 @@ package arcanor;
 import java.util.*;
 import java.io.*;
 import java.text.*;
+import java.util.InputMismatchException;
 
 /**
  * This class represent a game and it's logic
@@ -127,7 +128,12 @@ public class Game implements Serializable{
 		
 		while(numSave < 1 || numSave > 6){
 			System.out.println("Save in space number ? 1-6");
-			numSave = in.nextInt();
+			try{
+				numSave = in.nextInt();
+			}
+			catch(InputMismatchException e){
+				System.out.println("Please enter an integer");
+			}
 		}
 		
 		String f = numSave + ".savebin";
@@ -181,7 +187,7 @@ public class Game implements Serializable{
 	
 	/**
 	 * This method treats the end of the game
-	 * @param 0 if no winner, -1 if Player 2 win, 1 if Player 1 win
+	 * @param winner 0 if no winner, -1 if Player 2 win, 1 if Player 1 win
 	 */ 
 	public void endOfGame(int winner){
 		switch(winner){

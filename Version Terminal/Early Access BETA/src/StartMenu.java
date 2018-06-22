@@ -14,7 +14,6 @@ public class StartMenu extends Menu{
 
 	/**
 	 * The constructor
-	 * @param nbJoueurs Number of Human's Player
 	 */
 	public StartMenu(){
 		super("New Game");

@@ -50,6 +50,7 @@ public abstract class Player implements Serializable{
 
 	/**
 	 * Method that ask input to the Player, Human or not
+	 * @param numTour the current turn
 	 */
 	public abstract void playTurn(int numTour);
 	

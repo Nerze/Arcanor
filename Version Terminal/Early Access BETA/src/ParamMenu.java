@@ -42,7 +42,7 @@ public class ParamMenu extends Menu{
 
     /**
      * Setter de tabParams
-     * @param tabParams le tableau de paramètres
+     * @param newTab Settings table
      */
     public void setTabParams(String[] newTab){
 	    if (newTab.length >= tabParams.length){
@@ -65,7 +65,7 @@ public class ParamMenu extends Menu{
 				System.out.println("= 1. Change Board dimensions");
 				System.out.println("= 2. Change Player's number");
 				System.out.println("= 3. Change Players name");
-				System.out.println("= 4. Change The number of points to win");
+				System.out.println("= 4. Change the number of points to win");
 				System.out.println("= 0. Back");
 				in = sc.nextInt();
 				if(in >= 0 && in <= 4){
@@ -159,7 +159,7 @@ public class ParamMenu extends Menu{
 	public void modifPoints(){
 		Scanner sc = new Scanner(System.in);
 		System.out.println("==== Parameters ====");
-		System.out.println("= Set number of human players :");
+		System.out.println("= Set the number of points to win :");
 	
 		int j = sc.nextInt();
 		while ((j < 1)) {
