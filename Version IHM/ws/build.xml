@@ -10,6 +10,7 @@
 	<property name="src" location="src"/> 
 	<property name="jar" location="jar"/> 
 	<property name="class" location="class"/> 
+	<property name="img" location="images"/>
 	<property name="javadoc" location="javaDoc"/> 
 
 	<target name="clean" description="Clean up dir and contained files" > 
@@ -35,7 +36,7 @@
 
 	<target name="jar" depends="compile" description="Generate the Arcanor.jar" >
 		<!-- Create the Arcanor.jar from all classes -->
-		<jar destfile="${jar}/Arcanor.jar" basedir="class">
+		<jar destfile="${jar}/Arcanor.jar" basedir="${class}" includes="${img}">
 			<manifest>
 				<attribute name="Main-Class" value="Arcanor"/>
 			</manifest>
@@ -48,7 +49,7 @@
 		<javadoc packagenames="arcanor" sourcepath="${src}" destdir="${javadoc}">
 			<!-- Define which files / directory should get included, we include all -->
 			<fileset dir="${src}">
-					<include name="**" />
+					<include name="**"/>
 			</fileset>
 		</javadoc>
 		<echo message="Javadoc created..."/>
@@ -60,4 +61,3 @@
 	</target> 
 
 </project>
-
