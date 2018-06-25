@@ -6,17 +6,20 @@ import java.util.InputMismatchException;
 import javax.swing.*;
 import java.awt.*;
 public class Game implements Serializable{
-	private Board board;
-	private int nbTours;
-	private boolean turnOf;
+	public Board board;
+	public int nbTours;
+	public boolean turnOf;
 	private Player player1;
 	private Player player2;
 	private final int DEFAULT_HEIGHT=7;
 	private final int DEFAULT_WIDTH=3;
-	final static String QUIT = "Quit";
 	final static String GAMEBOARD = "Gameboard";
+    final static String SAVEMENU = "Save menu";
+    final static String GAMEMENU = "Main Menu";
+    
+	public boolean empty;
 	JPanel cards,panel;
-	public Game(ParamMenu params, JPanel cards){
+	public Game(ParamMenu params, JPanel cards, SaveMenu saveMen){
 		int width=Integer.parseInt(params.getTabParams()[1]);
 		int height=Integer.parseInt(params.getTabParams()[0]);
 		int vict = Integer.parseInt(params.getTabParams()[5]);
@@ -49,64 +52,45 @@ public class Game implements Serializable{
 		}
 		this.nbTours=1;
 		this.turnOf=true;
-		initializePanel(cards);
+		initializePanel(cards, saveMen);
 		
 	}
 	
-	public void initializePanel(JPanel cards){
+	public void initializePanel(JPanel cards, SaveMenu saveMen){
 		GridTableModel otmodel = new GridTableModel(this.board.getGrid());
 		JTable tab = new JTable(otmodel);
 		// to adjust some parameters
 		tab.setShowGrid(true);
 		// color for the grid lines
 		tab.setGridColor(Color.BLACK);
-		tab.setRowHeight(50);
+		tab.setRowHeight(64);
 		this.panel= new JPanel();
-		panel.add(new JScrollPane(tab));
-		ButtonMenu quit = new ButtonMenu("Quit", QUIT);
-		quit.addMouseListener(new MenuListener(quit,panel));
-		panel.add(quit);
+		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+		panel.add(tab);
+		ButtonMenu quit = new ButtonMenu("Quit", GAMEMENU);
+		quit.addMouseListener(new MenuListener(quit,cards));
+		JCheckBox empt = new JCheckBox("Empty your piece");
+		empt.addMouseListener(new EmptyListener(this,empt)); 
+		ButtonMenu sav = new ButtonMenu("Save", SAVEMENU);
+		sav.addMouseListener(new MenuListener(sav,cards));
+		JPanel buttons = new JPanel();
+		buttons.add(empt);
+		buttons.add(sav);
+		buttons.add(quit);
+		panel.add(buttons);
 		cards.add(panel, GAMEBOARD);
 		this.cards=cards;
-		tab.addMouseListener(new GridListener(this));
+		tab.addMouseListener(new GridListener(this, tab));
+		saveMen.paintMe(cards, this);
 	}
 	
-	public boolean start(){
+	public void start(){
 		CardLayout cl = (CardLayout)(cards.getLayout());
-		cl.show(cards, GAMEBOARD);
-		//~ int winner=0;
-		//~ while(winner==0){
-			//~ if(turnOf){
-				//~ this.player1.playTurn(nbTours);
-			//~ }
-			//~ else{
-				//~ this.player2.playTurn(nbTours);
-				//~ this.nbTours++;
-			//~ }
-			//~ this.turnOf=!turnOf;
-			//~ winner=this.board.checkWin();
-			//~ Scanner in= new Scanner(System.in);
-			//~ String inp="";
-			//~ while(!(inp.equalsIgnoreCase("y") || inp.equalsIgnoreCase("n"))){
-				//~ System.out.println("Save ? y/n");
-				//~ inp=in.nextLine();
-			//~ }
-			//~ if(inp.equalsIgnoreCase("y")){
-				//~ save();
-			//~ }
-		//~ }
-		//~ endOfGame(winner);
-		return true;																			
+		cl.show(cards, GAMEBOARD);																			
 	}
 	
-	public void save(){
-		int numSave=0;
-		Scanner in = new Scanner(System.in);
-		while(numSave<1 || numSave>6){
-			System.out.println("Save in space number ? 1-6");
-			numSave=in.nextInt();
-		}
-		String f = numSave+".savebin";
+	public void save(int numSave){
+		String f = (numSave+1)+".savebin";
 		try
 		{
 			ObjectOutputStream oos = new ObjectOutputStream (new FileOutputStream (f));
@@ -135,7 +119,7 @@ public class Game implements Serializable{
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		saves[numSave*2-1]=dateFormat.format(date);
+		saves[numSave*2+1]=dateFormat.format(date);
 		String output="";
 		for(int i=0;i<11;i=i+2){
 			if(i!=0){

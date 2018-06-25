@@ -2,15 +2,16 @@ package arcanor;
 
 import javax.swing.table.AbstractTableModel;
 import javax.swing.ImageIcon;
+import java.io.Serializable;
 
-public class GridTableModel extends AbstractTableModel {
+
+public class GridTableModel extends AbstractTableModel implements Serializable {
 
   private int noOfRows, noOfCols;
   private Piece[][] grid;
-  private static final String PATH = "images/"; 
-  private String imageFree= "noir.jpg";
-  private String imageYellow= "blanc.jpg";
-  private String imageRed= "noir.jpg";
+  private static final String PATH = "../images/"; 
+  private String imageBlack= "BLACK.png";
+  private String imageWhite= "WHITE.png";
     
   
  /*
@@ -36,8 +37,8 @@ public class GridTableModel extends AbstractTableModel {
     Object result = new Object();
     Piece p = grid[c][grid[0].length-r-1];
     if (p==null) result= new ImageIcon("/ddsgh");
-    else if(p.getColor()) result=new ImageIcon(PATH + imageYellow);
-    else result= new ImageIcon(PATH + imageRed);
+    else if(p.getColor()) result=new ImageIcon(PATH + p.getValue()+imageBlack);
+    else result= new ImageIcon(PATH + p.getValue()+imageWhite);
     this.fireTableDataChanged();
     return result;
   }

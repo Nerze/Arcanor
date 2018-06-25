@@ -12,7 +12,6 @@ public abstract class Menu extends JPanel{
 	 * Menu's title
 	 */
 	protected String title;
-
 	/**
 	 * The constructor
 	 * @param title the title to print
@@ -22,6 +21,8 @@ public abstract class Menu extends JPanel{
 		this.title=title;
 		JComponent[] comps = {new JLabel(title)};
 		addComp(comps);
+		//~ Image background = Toolkit.getDefaultToolkit().createImage("../images/wallpaper.png");
+		//~ this.drawImage(background, 0, 0, null);
 	}
 	
 	public void addComp(JComponent[] comps){
@@ -31,5 +32,4 @@ public abstract class Menu extends JPanel{
 		}
 		this.add(pan);
 	}
-
 }

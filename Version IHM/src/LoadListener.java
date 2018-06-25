@@ -6,9 +6,11 @@ import java.awt.*;
 public class LoadListener implements MouseListener{
 	private LoadButton origin;
 	private JPanel board, cards;
+	private SaveMenu sav;
 	final static String GAMEBOARD = "Gameboard";
 
-	public LoadListener(LoadButton origin, JPanel cards){
+	public LoadListener(LoadButton origin, JPanel cards, SaveMenu sav){
+		this.sav=sav;
 		if(origin==null){
 			System.out.println("MenuListener() ERROR : origin is null");
 			origin= new LoadButton("",null);
@@ -24,7 +26,7 @@ public class LoadListener implements MouseListener{
 	public void mouseClicked(MouseEvent e){
 		Game game= origin.getGame();
 		if(game!=null){
-			game.initializePanel(cards);
+			game.initializePanel(cards, sav);
 			game.start();
 		}
 	}

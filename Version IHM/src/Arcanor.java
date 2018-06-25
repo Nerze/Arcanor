@@ -1,6 +1,9 @@
 import java.awt.*;
 import javax.swing.*;
 import arcanor.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
 
 
 public class Arcanor{
@@ -10,23 +13,27 @@ public class Arcanor{
     final static String LOADMENU = "Load Menu";
     final static String PARAMMENU = "Parameters";
     final static String GAMEBOARD = "Gameboard";
+    final static String SAVEMENU = "Save menu";
     
     public void addComponentToPane(Container pane) {
         
         //Create the panel that contains the menus.
-        cards = new JPanel(new CardLayout());
+			cards = new JPanel(new CardLayout());
         
         //Create the menus
+        SaveMenu save = new SaveMenu(cards);
         GameMenu game = new GameMenu(cards);
-        LoadMenu load = new LoadMenu(cards);
+        LoadMenu load = new LoadMenu(cards, save);
         ParamMenu param = new ParamMenu(cards);
-		StartMenu start = new StartMenu(cards, param);
+		StartMenu start = new StartMenu(cards, param, save);
+		
 
         //Add them tho the cardLayout panel
         cards.add(game, GAMEMENU);
         cards.add(start, STARTMENU);
         cards.add(param, PARAMMENU);
         cards.add(load,LOADMENU);
+        cards.add(save,SAVEMENU);
         
         pane.add(cards, BorderLayout.CENTER);
         CardLayout cl = (CardLayout)(cards.getLayout());
@@ -41,13 +48,13 @@ public class Arcanor{
         //Create and set up the window.
         JFrame frame = new JFrame("Arcanor");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
         //Create and set up the content pane.
         Arcanor demo = new Arcanor();
         demo.addComponentToPane(frame.getContentPane());
         
         //Display the window.
         frame.pack();
+        frame.setPreferredSize(new Dimension(1000, 500));
         frame.setVisible(true);
     }
     

@@ -18,7 +18,7 @@ public class LoadMenu extends Menu{
    /**
     * The constructor
     */
-   public LoadMenu(JPanel panel){
+   public LoadMenu(JPanel panel, SaveMenu save){
 	   super("Load");
 	   try{
 			saves = new String[6];
@@ -50,7 +50,7 @@ public class LoadMenu extends Menu{
 			savesButtons[i] = new LoadButton("Load",savedGames[i]);
 			components[i]=new JComponent[]{savesLabel[i],savesButtons[i]};
 			addComp(components[i]);
-			savesButtons[i].addMouseListener(new LoadListener(savesButtons[i], panel));
+			savesButtons[i].addMouseListener(new LoadListener(savesButtons[i], panel,save));
 		}
 		ButtonMenu back = new ButtonMenu("Back",GAMEMENU);
 		back.addMouseListener(new MenuListener(back,panel));

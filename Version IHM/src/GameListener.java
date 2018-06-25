@@ -8,7 +8,9 @@ public class GameListener implements MouseListener{
 	private ParamMenu params;
 	final static String GAMEBOARD = "Gameboard";
 	Game game;
-	public GameListener(ParamMenu params, JPanel cards){
+	SaveMenu sav;
+	public GameListener(ParamMenu params, JPanel cards, SaveMenu sav){
+		this.sav=sav;
 		if(params==null){
 			System.out.println("GameListener() ERROR : params is null");
 			params= new ParamMenu(cards);
@@ -29,7 +31,7 @@ public class GameListener implements MouseListener{
 	public void mouseExited(MouseEvent e){}
 	
 	public void mousePressed(MouseEvent e){
-		this.game=new Game(params, cards);
+		this.game=new Game(params, cards, sav);
 	}
 	
 	public void mouseReleased(MouseEvent e){

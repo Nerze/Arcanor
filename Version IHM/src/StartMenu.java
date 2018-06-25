@@ -22,7 +22,7 @@ public class StartMenu extends Menu{
 	 * The constructor
 	 * @param nbJoueurs Number of Human's Player
 	 */
-	public StartMenu(JPanel panel, ParamMenu startParams){
+	public StartMenu(JPanel panel, ParamMenu startParams, SaveMenu sav){
 		super("Start Menu");
 		this.startParams = startParams;
 		ButtonMenu gameboard = new ButtonMenu("Start New Game",GAMEBOARD);
@@ -34,7 +34,7 @@ public class StartMenu extends Menu{
 		addComp(comps);
 		comps=new JComponent[]{back};
 		addComp(comps);
-		gameboard.addMouseListener(new GameListener(startParams,panel));
+		gameboard.addMouseListener(new GameListener(startParams,panel, sav));
 		param.addMouseListener(new MenuListener(param,panel));
 		back.addMouseListener(new MenuListener(back,panel));
 		this.board=board;
