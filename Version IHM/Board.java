@@ -123,7 +123,7 @@ public class Board implements Serializable{
 					else{
 						ret+="X";
 					}
-					ret+=+grid[x][y].getValue();
+					ret+=grid[x][y].getValue();
 				}
 			}
 			ret+=" |"+"\n";
@@ -149,5 +149,7 @@ public class Board implements Serializable{
 		}
 		return ret;
 	}
+	
+	public Piece[][] getGrid(){return this.grid;}
 
 }

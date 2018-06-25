@@ -10,6 +10,8 @@ public class StartMenu extends Menu{
     final static String GAMEBOARD = "Gameboard";
     final static String GAMEMENU = "Main Menu";
     final static String PARAMMENU = "Parameters";
+    final static String BOARD = "Board";
+    private JPanel board;
     
 	/**
 	 * Settings's table
@@ -20,8 +22,9 @@ public class StartMenu extends Menu{
 	 * The constructor
 	 * @param nbJoueurs Number of Human's Player
 	 */
-	public StartMenu(JPanel panel){
+	public StartMenu(JPanel panel, ParamMenu startParams){
 		super("Start Menu");
+		this.startParams = startParams;
 		ButtonMenu gameboard = new ButtonMenu("Start New Game",GAMEBOARD);
 		ButtonMenu param = new ButtonMenu("Parameters",PARAMMENU);
 		ButtonMenu back = new ButtonMenu("Back",GAMEMENU);
@@ -31,9 +34,10 @@ public class StartMenu extends Menu{
 		addComp(comps);
 		comps=new JComponent[]{back};
 		addComp(comps);
-		gameboard.addMouseListener(new MenuListener(gameboard,panel));
+		gameboard.addMouseListener(new GameListener(startParams,panel));
 		param.addMouseListener(new MenuListener(param,panel));
 		back.addMouseListener(new MenuListener(back,panel));
+		this.board=board;
 		
    	}
 	

@@ -18,13 +18,15 @@ public class Arcanor{
         
         //Create the menus
         GameMenu game = new GameMenu(cards);
-        StartMenu start = new StartMenu(cards);
+        LoadMenu load = new LoadMenu(cards);
         ParamMenu param = new ParamMenu(cards);
-        
+		StartMenu start = new StartMenu(cards, param);
+
         //Add them tho the cardLayout panel
         cards.add(game, GAMEMENU);
         cards.add(start, STARTMENU);
         cards.add(param, PARAMMENU);
+        cards.add(load,LOADMENU);
         
         pane.add(cards, BorderLayout.CENTER);
         CardLayout cl = (CardLayout)(cards.getLayout());

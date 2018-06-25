@@ -2,6 +2,9 @@ package arcanor;
 import java.util.*;
 import java.io.*;
 import java.text.*;
+import java.util.InputMismatchException;
+import javax.swing.*;
+import java.awt.*;
 public class Game implements Serializable{
 	private Board board;
 	private int nbTours;
@@ -10,7 +13,10 @@ public class Game implements Serializable{
 	private Player player2;
 	private final int DEFAULT_HEIGHT=7;
 	private final int DEFAULT_WIDTH=3;
-	public Game(ParamMenu params){
+	final static String QUIT = "Quit";
+	final static String GAMEBOARD = "Gameboard";
+	JPanel cards,panel;
+	public Game(ParamMenu params, JPanel cards){
 		int width=Integer.parseInt(params.getTabParams()[1]);
 		int height=Integer.parseInt(params.getTabParams()[0]);
 		int vict = Integer.parseInt(params.getTabParams()[5]);
@@ -43,32 +49,54 @@ public class Game implements Serializable{
 		}
 		this.nbTours=1;
 		this.turnOf=true;
+		initializePanel(cards);
+		
+	}
+	
+	public void initializePanel(JPanel cards){
+		GridTableModel otmodel = new GridTableModel(this.board.getGrid());
+		JTable tab = new JTable(otmodel);
+		// to adjust some parameters
+		tab.setShowGrid(true);
+		// color for the grid lines
+		tab.setGridColor(Color.BLACK);
+		tab.setRowHeight(50);
+		this.panel= new JPanel();
+		panel.add(new JScrollPane(tab));
+		ButtonMenu quit = new ButtonMenu("Quit", QUIT);
+		quit.addMouseListener(new MenuListener(quit,panel));
+		panel.add(quit);
+		cards.add(panel, GAMEBOARD);
+		this.cards=cards;
+		tab.addMouseListener(new GridListener(this));
 	}
 	
 	public boolean start(){
-		int winner=0;
-		while(winner==0){
-			if(turnOf){
-				this.player1.playTurn(nbTours);
-			}
-			else{
-				this.player2.playTurn(nbTours);
-				this.nbTours++;
-			}
-			this.turnOf=!turnOf;
-			winner=this.board.checkWin();
-			Scanner in= new Scanner(System.in);
-			String inp="";
-			while(!(inp.equalsIgnoreCase("y") || inp.equalsIgnoreCase("n"))){
-				System.out.println("Save ? y/n");
-				inp=in.nextLine();
-			}
-			if(inp.equalsIgnoreCase("y")){
-				save();
-			}
-		}
-		endOfGame(winner);
-		return true;
+		CardLayout cl = (CardLayout)(cards.getLayout());
+		cl.show(cards, GAMEBOARD);
+		//~ int winner=0;
+		//~ while(winner==0){
+			//~ if(turnOf){
+				//~ this.player1.playTurn(nbTours);
+			//~ }
+			//~ else{
+				//~ this.player2.playTurn(nbTours);
+				//~ this.nbTours++;
+			//~ }
+			//~ this.turnOf=!turnOf;
+			//~ winner=this.board.checkWin();
+			//~ Scanner in= new Scanner(System.in);
+			//~ String inp="";
+			//~ while(!(inp.equalsIgnoreCase("y") || inp.equalsIgnoreCase("n"))){
+				//~ System.out.println("Save ? y/n");
+				//~ inp=in.nextLine();
+			//~ }
+			//~ if(inp.equalsIgnoreCase("y")){
+				//~ save();
+			//~ }
+		//~ }
+		//~ endOfGame(winner);
+		return true;																			
 	}
 	
 	public void save(){
@@ -102,7 +130,6 @@ public class Game implements Serializable{
 			for(int i=0;i<6;i++){
 				int nSave= Integer.parseInt(br.readLine());
 				saves[nSave*2-1]=br.readLine();
-				System.out.println(saves[nSave*2-1]);
 			}
 		}
 		catch(Exception e){

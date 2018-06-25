@@ -100,6 +100,8 @@ public class ParamMenu extends Menu{
 		play1NameVal.addFocusListener(new TextFieldParamListener(play1NameVal,tabParams,3));
 		play2NameVal.addFocusListener(new TextFieldParamListener(play2NameVal,tabParams,4));
 		
+		nbPlayerVal.addItemListener(new nbHumanListener(nbPlayerVal,tabParams,2));
+		
 		comps=new JComponent[]{back};
 		addComp(comps);
 		

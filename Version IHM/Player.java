@@ -1,5 +1,6 @@
 package arcanor;
 import java.io.Serializable;
+import javax.swing.*;
 /**
  * This class represent a Player
  */
