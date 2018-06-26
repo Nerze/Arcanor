@@ -1,27 +1,9 @@
 # Arcanor
 
-TO-DO General :
-- Modifier diagramme de classe : Ajouter save dans Game
-Pre-Partiels :
-  
-- Les classes
-- Les tests
-- L'interface
-- La javaDoc
+Pour créer un fichier .jar depuis les fichier sources il faut se placer dens le fichier ws de et éxecuter la commande suivante :
 
-Post-Partiels :
-  
-- La partie graphique
-- ...
-
-TO-DO Rapide :
-
--Adapter pour ajouter une IHM
-
-Tâches fini :
-- Avoir un environnement propre et fonctionel pour les test Junit
-
-FAIT - à Tester :
-- Tout sauf IAPlayer
-
-FINI (point à la ligne) :
+jar cvf arcanor.jar manifest.txt ../class
+puis
+chmod 700 arcanor.jar
+puis
+java -jar arcanor.jar
