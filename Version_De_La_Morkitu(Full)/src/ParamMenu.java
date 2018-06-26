@@ -125,6 +125,7 @@ public class ParamMenu extends Menu{
 		play2NameVal.setPreferredSize(new Dimension(230, 60));
 		
 		//adds the components to the panel
+		
 		JComponent[] comps= {heightInf, minusHeight, heightVal, plusHeight};
 		addComp(comps);
 		comps=new JComponent[]{widthInf, minusWidth, widthVal, plusWidth};

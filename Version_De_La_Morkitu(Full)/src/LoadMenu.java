@@ -72,7 +72,9 @@ public class LoadMenu extends Menu{
 		for(int i=0;i<saves.length;i++){
 			savesLabel[i]=new JLabel(saves[i]);
 			savesLabel[i].setFont(font);
-			savesLabel[i].setForeground(Color.DARK_GRAY);
+			savesLabel[i].setBackground(Color.DARK_GRAY);
+			savesLabel[i].setForeground(Color.ORANGE);
+			savesLabel[i].setOpaque(true);
 			savesButtons[i] = new LoadButton("Load",savedGames[i]);
 			savesButtons[i].setFont(font);
 			savesButtons[i].setPreferredSize(new Dimension(230, 60));

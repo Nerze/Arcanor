@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.*;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.*;
 
 
 public class Arcanor{
@@ -48,7 +49,15 @@ public class Arcanor{
 		//Create and set up the window.
 		JFrame frame = new JFrame("Arcanor");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("../songs/bgm.wav"));
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioInputStream);
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+			clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 		//Create and set up the content pane.
 		Arcanor demo = new Arcanor();
 		JPanel global = new JPanel();

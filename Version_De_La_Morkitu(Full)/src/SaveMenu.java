@@ -54,6 +54,7 @@ public class SaveMenu extends Menu{
 		for(int i=0;i<saves.length;i++){
 			savesLabel[i]=new JLabel(saves[i]);
 			savesLabel[i].setFont(font);
+			savesLabel[i].setOpaque(true);
 			savesLabel[i].setBackground(Color.DARK_GRAY);
 			savesLabel[i].setForeground(Color.ORANGE);
 			

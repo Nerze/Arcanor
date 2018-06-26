@@ -132,7 +132,6 @@ public class GridListener extends MouseAdapter implements Serializable{
 		switch(winner){
 			case 1:
 				game.playerTurn.setText(game.player1.getName()+" wins !");
-				System.out.println(game.playerTurn.getText());
 				break;
 			case -1:
 				game.playerTurn.setText(game.player2.getName()+" wins !");
