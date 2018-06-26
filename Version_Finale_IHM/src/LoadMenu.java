@@ -22,9 +22,9 @@ public class LoadMenu extends Menu{
 	   super("Load");
 	   try{
 			saves = new String[6];
+			savedGames=new Game[6];
 			FileReader fileR= new FileReader("saves.savebin");
 			BufferedReader br = new BufferedReader(fileR);
-			savedGames=new Game[6];
 			for(int i=0;i<6;i++){
 				saves[i]="Save "+br.readLine();
 				String date= br.readLine();
@@ -39,6 +39,30 @@ public class LoadMenu extends Menu{
 				}
 			}
 		}
+		catch(FileNotFoundException e){
+			String[] saves= new String[12];
+			for(int i=0;i<6;i++){
+				saves[i*2]=(i+1)+"";
+				saves[i*2+1]="null";
+			}
+			String output="";
+			for(int i=0;i<11;i=i+2){
+				if(i!=0){
+					output+="\n";
+				}
+				output+=saves[i]+"\n"+saves[i+1];
+			}
+			try{
+				PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("saves.savebin")));
+				out.println(output);
+				out.close();
+			}
+			catch(Exception ex){
+				ex.printStackTrace();
+			}
+			
+		}
+			
 		catch(Exception e){
 		e.printStackTrace();
 		}
