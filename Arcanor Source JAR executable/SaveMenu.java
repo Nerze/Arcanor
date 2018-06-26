@@ -27,6 +27,7 @@ public class SaveMenu extends Menu{
 	* @param game the instance of game currently running
 	*/
    public void paintMe(JPanel panel, Game game){
+	   this.removeAll();
 	   try{
 			saves = new String[6];
 			FileReader fileR= new FileReader("saves.savebin");
