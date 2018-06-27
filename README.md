@@ -4,6 +4,8 @@ Pour créer un fichier .jar depuis les fichier sources il faut se placer dens le
 
 javac -d ../class ../src/*.java
 puis
+javadoc -charset UTF8 -private -d ../javaDoc ../src/*.java
+puis
 jar cvf arcanor.jar manifest.txt ../class
 puis
 chmod 700 arcanor.jar
